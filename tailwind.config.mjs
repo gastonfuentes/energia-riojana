@@ -9,6 +9,9 @@ export default {
 				primary_variant_2: "#EE8123",
 				generacion_distribuida: "EE233F",
 				sistemas_aislados: "#EEA923"
+			},
+			backgroundImage: {
+				bannerImg: "url('/image-hero.png')"
 			}
 		},
 	},

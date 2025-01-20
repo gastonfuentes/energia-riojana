@@ -1,6 +1,12 @@
 ---
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,7 +16,7 @@ import "@fontsource-variable/montserrat";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Energia Riojana S.A.</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<div class="w-full mx-auto">

@@ -1,7 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import logo_horizontal from "../assets/logo-horizontal-blanco.svg";
 
-import logo_horizontal from "../assets/logo-horizontal.svg";
+/* para obtener ruta de donde estamos parados*/
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 
 <nav class="absolute w-full">
@@ -45,29 +48,46 @@ import logo_horizontal from "../assets/logo-horizontal.svg";
                 <li>
                     <a
                         href="/"
-                        class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                        class={currentPath === ""
+                            ? "text-primary"
+                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
                         aria-current="page">Inicio</a
                     >
                 </li>
                 <li>
                     <a
                         href="/institucional"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                        class={currentPath === "institucional"
+                            ? "text-primary"
+                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
                         >Institucional</a
                     >
                 </li>
                 <li>
                     <a
-                        href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                        href="/alta_tencion"
+                        class={currentPath === "alta_tencion"
+                            ? "text-primary"
+                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
                         >Alta Tencion</a
                     >
                 </li>
                 <li>
                     <a
-                        href="#"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                        href="/fotovoltaica"
+                        class={currentPath === "fotovoltaica"
+                            ? "text-primary"
+                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
                         >Fotovoltaica</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="/contact"
+                        class={currentPath === "contacto"
+                            ? "text-primary"
+                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
+                        >Contacto</a
                     >
                 </li>
             </ul>

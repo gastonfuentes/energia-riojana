@@ -1,1 +1,38 @@
-<h1>soy data 1</h1>
+---
+import { Image } from "astro:assets";
+import divisor_arriba from "../assets/divisor_arriba.svg";
+import divisor_abajo from "../assets/divisor_abajo.svg";
+import icono_lampara from "../assets/icono_lampara.svg";
+import icono_casa from "../assets/icono_casa.svg";
+---
+
+<section class="flex flex-col justify-center items-center text-white">
+    <Image src={divisor_arriba} alt="divisor" class="w-full" />
+    <article
+        class="bg-primary_variant_1 w-full flex items-center justify-center"
+    >
+        <div class="w-3/4 flex flex-col items-center justify-center gap-10">
+            <div class="flex flex-row gap-10 items-center justify-center">
+                <Image src={icono_lampara} alt="icono de lampara" />
+                <div class="flex flex-row gap-10 items-center justify-center">
+                    <span class="text-8xl font-black">+160</span>
+                    <p class="text-xl">
+                        Riojanos y Riojanas consumen el sistema solar
+                        fotovoltaico en actividades diarias
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-row gap-10 items-center justify-center">
+                <Image src={icono_casa} alt="icono de lampara" />
+                <div class="flex flex-row gap-10 items-center justify-center">
+                    <span class="text-8xl font-black">+37</span>
+                    <p class="text-xl">
+                        Hogares rurales generan su propia energía para
+                        satisfacer necesidades residenciales por primera vez.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <Image src={divisor_abajo} alt="divisor" class="w-full" />
+</section>

@@ -11,7 +11,8 @@ export default {
 				sistemas_aislados: "#EEA923"
 			},
 			backgroundImage: {
-				bannerImg: "url('/image-hero.png')"
+				bannerImg: "url('/image-hero.png')",
+				bannerInstitucional: "url('/image_institucional.jpg')"
 			}
 		},
 	},

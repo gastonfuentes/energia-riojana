@@ -10,10 +10,10 @@ export default {
 				generacion_distribuida: "EE233F",
 				sistemas_aislados: "#EEA923"
 			},
-			backgroundImage: {
-				bannerImg: "url('/image-hero.png')",
-				bannerInstitucional: "url('/image_institucional.jpg')"
-			}
+			/* backgroundImage: {
+				'bannerImg': "url('/image-hero.png')",
+				'bannerInst': "url('/image_hero.png')",
+			} */
 		},
 	},
 	plugins: [],

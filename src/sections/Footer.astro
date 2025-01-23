@@ -1,1 +1,14 @@
-<h1>soy el footer</h1>
+---
+import { Image } from "astro:assets";
+import ersa_qr from "../assets/ersa_qr.png";
+---
+
+<footer>
+    <Image
+        class="mx-auto" 
+        src={ersa_qr} alt="Imagen qr" width={207} height={243}
+    />
+    <h1 class="flex justify-center p-14">
+        © 2024 Energia Riojana. Todos los derechos reservados.
+    </h1>
+</footer>

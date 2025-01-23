@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import image_beneficios from "../assets/image-beneficios.png";
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen text-gray-900 py-32"
+>
+    <article class="w-3/4">
+        <div class="flex flex-row gap-14">
+            <Image
+                src={image_beneficios}
+                alt="imagen panel solar"
+                width={550}
+            />
+            <div class="flex flex-col items-center justify-center gap-4">
+                <h1 class="text-4xl font-extrabold">
+                    Energía Solar: Beneficios que Iluminan tu Futuro
+                </h1>
+                <p class="text-xl">
+                    La energía solar es sostenible, reduce costos a largo plazo
+                    y cuida el medio ambiente. Genera electricidad limpia,
+                    disminuye emisiones de carbono y aumenta el valor de las
+                    propiedades. ¡Una inversión inteligente y ecológica!
+                </p>
+            </div>
+        </div>
+    </article>
+</section>

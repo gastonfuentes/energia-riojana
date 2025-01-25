@@ -1,1 +1,23 @@
-<h1>soy offgrid</h1>
+---
+import { Image } from "astro:assets";
+import image_offgrid from "../assets/image-offgrid.png";
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen text-gray-900 py-32"
+>
+    <article class="w-3/4">
+        <div class="flex flex-row gap-14">
+            <Image src={image_offgrid} alt="imagen panel solar" width={550} />
+            <div class="flex flex-col justify-center gap-4">
+                <h1 class="text-4xl font-extrabold">Sistemas Off Grid</h1>
+                <p class="text-xl">
+                    Los sistemas off-grid funcionan de manera autónoma con
+                    baterías, perfectos para lugares remotos o sin conexión a la
+                    red. Ambos ofrecen soluciones adaptadas a distintas
+                    necesidades energéticas.
+                </p>
+            </div>
+        </div>
+    </article>
+</section>

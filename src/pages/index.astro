@@ -1,23 +1,12 @@
 ---
+import Construction from "../components/Construction.astro";
+import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-import Benefits from "../sections/Benefits.astro";
-import Data from "../sections/Data.astro";
-import Footer from "../sections/Footer.astro";
-import Hero from "../sections/Hero.astro";
-import OffGrid from "../sections/OffGrid.astro";
-import OnGrid from "../sections/OnGrid.astro";
-import NavBar from "../components/NavBar.astro";
 
-const title = "Energia Riojana | Home";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title={title}>
-	<Hero />
-	<main>
-		<Benefits />
-		<Data />
-		<OnGrid />
-		<OffGrid />
-	</main>
-	<Footer />
+<Layout>
+	<Construction />
 </Layout>

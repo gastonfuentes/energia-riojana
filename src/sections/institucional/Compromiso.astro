@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import imagen from "../../assets/image-offgrid.png";
+---
+
+<article
+    class="w-3/4 p-8 flex flex-row gap-4 items-center justify-between my-8"
+>
+    <section class="w-1/2 flex flex-col gap-2">
+        <h1 class="text-5xl font-bold">Compromiso con La Rioja</h1>
+        <p>
+            Somos una empresa con raíces profundas en nuestra provincia. Nos
+            enorgullece impulsar el desarrollo de La Rioja, generando empleo,
+            fortaleciendo la economía local y consolidando a la provincia como
+            un ejemplo de sustentabilidad en el país.
+        </p>
+    </section>
+    <Image src={imagen} alt="co2" width={400} />
+</article>

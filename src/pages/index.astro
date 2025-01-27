@@ -8,29 +8,15 @@ import OffGrid from "../sections/OffGrid.astro";
 import OnGrid from "../sections/OnGrid.astro";
 import Data2 from "../sections/Data2.astro";
 import HeroPage from "../components/HeroPage.astro";
+import { Image } from "astro:assets";
+import Hero from "../sections/Hero.astro";
 
 const title = "Energia Riojana | Home";
 ---
 
 <Layout title={title}>
-	<!-- <HeroPage
-		titulo="Eficiencia energética y desarrollo ambiental sostenible"
-		descripcion="Promovemos el desarrollo sostenible de La Rioja"
-		imagen="image-hero.png"
-	/> -->
-	<section
-		class="flex flex-col justify-center items-center h-screen bg-cover text-white"
-		style=`background-image: url("image-hero.png");`
-	>
-		<article class="w-3/4">
-			<h1 class="text-6xl font-extrabold">
-				Eficiencia energética y desarrollo ambiental sostenible
-			</h1>
-			<p class="text-xl">
-				Promovemos el desarrollo sostenible de La Rioja
-			</p>
-		</article>
-	</section>
+	<Hero />
+
 	<main>
 		<Benefits />
 		<Data />

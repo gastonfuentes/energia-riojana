@@ -4,16 +4,20 @@ import Benefits from "../sections/Benefits.astro";
 import Contacto from "../sections/Contacto.astro";
 import Data from "../sections/Data.astro";
 import Footer from "../sections/Footer.astro";
-import Hero from "../sections/Hero.astro";
 import OffGrid from "../sections/OffGrid.astro";
 import OnGrid from "../sections/OnGrid.astro";
 import Data2 from "../sections/Data2.astro";
+import HeroPage from "../components/HeroPage.astro";
 
 const title = "Energia Riojana | Home";
 ---
 
 <Layout title={title}>
-	<Hero />
+	<HeroPage
+		titulo="Eficiencia energética y desarrollo ambiental sostenible"
+		descripcion="Promovemos el desarrollo sostenible de La Rioja"
+		imagen="image-hero.png"
+	/>
 	<main>
 		<Benefits />
 		<Data />

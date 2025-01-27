@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import image_offgrid from "../../assets/image-offgrid.png";
+---
+
+<article class="flex flex-row gap-4 bg-gray-100 rounded-2xl p-8">
+    <figure class="w-1/2">
+        <Image src={image_offgrid} alt="imagen panel solar" />
+    </figure>
+    <div class="flex flex-col gap-4 w-1/2">
+        <h1 class="text-4xl font-bold p-4 bg-gray-100 rounded-xl">
+            Nuestra Misión
+        </h1>
+        <p class="bg-gray-100 rounded-xl p-4">
+            En Energía Riojana SA trabajamos con el compromiso de transformar el
+            futuro energético de nuestra provincia y del país. Somos una empresa
+            riojana dedicada al desarrollo, construcción y operación de
+            proyectos de generación de energía sustentable. Con un enfoque
+            innovador y responsable, promovemos soluciones que contribuyen a la
+            independencia energética y a la reducción del impacto ambiental.
+        </p>
+    </div>
+</article>

@@ -1,6 +1,15 @@
 ---
+import { Image } from "astro:assets";
+import divisor_arriba from "../assets/divisor_arriba.svg";
+
 import HeroPage from "../components/HeroPage.astro";
 import Layout from "../layouts/Layout.astro";
+import QuienesSomos from "../sections/institucional/QuienesSomos.astro";
+import Mision from "../sections/institucional/Mision.astro";
+import Valores from "../sections/institucional/Valores.astro";
+import QueHacemos from "../sections/institucional/QueHacemos.astro";
+import Impacto from "../sections/institucional/Impacto.astro";
+import Compromiso from "../sections/institucional/Compromiso.astro";
 ---
 
 <Layout title="Energia Riojana | Institucional">
@@ -9,7 +18,23 @@ import Layout from "../layouts/Layout.astro";
         descripcion="informacion sobre la institucion"
         imagen="image_institucional.jpg"
     />
-    <main>
-        <h2>soy la web institucional</h2>
+    <main
+        class="bg-gray-300 flex flex-col items-center justify-center text-gray-800"
+    >
+        <section class="flex flex-col w-3/4 py-24 gap-8">
+            <QuienesSomos />
+            <Mision />
+            <Valores />
+        </section>
+
+        <Image src={divisor_arriba} alt="division" />
+
+        <section
+            class="bg-primary_variant_1 w-full flex flex-col items-center justify-center text-white gap-8"
+        >
+            <QueHacemos />
+            <Impacto />
+            <Compromiso />
+        </section>
     </main>
 </Layout>

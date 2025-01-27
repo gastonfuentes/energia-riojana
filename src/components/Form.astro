@@ -1,0 +1,56 @@
+---
+
+---
+
+<form
+    class="flex flex-col gap-2"
+    data-netlify="true"
+    name="contact"
+    method="POST"
+>
+    <div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-500"
+            >Tu correo</label
+        >
+        <input
+            type="email"
+            id="email"
+            class="shadow-sm bg-gray-50 border-primary_variant_2 text-gray-900 text-sm rounded-lg focus:ring-primary_variant_1 focus:border-primary_variant_1 block w-full p-2.5"
+            placeholder="tucorreo@tucorreo.com"
+            required
+            name="email"
+        />
+    </div>
+    <div>
+        <label
+            for="subject"
+            class="block mb-2 text-sm font-medium text-gray-500">Asunto</label
+        >
+        <input
+            type="text"
+            id="subject"
+            class="shadow-sm bg-gray-50 border-primary_variant_2 text-gray-900 text-sm rounded-lg focus:ring-primary_variant_1 focus:border-primary_variant_1 block w-full p-2.5"
+            placeholder="Dejame aqui el asunto de tu mensaje"
+            required
+            name="asunto"
+        />
+    </div>
+    <div class="sm:col-span-2">
+        <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-500"
+            >Tu mensaje</label
+        >
+        <textarea
+            name="mensaje"
+            id="message"
+            rows="6"
+            class="shadow-sm bg-gray-50 border-primary_variant_2 text-gray-900 text-sm rounded-lg focus:ring-primary_variant_1 focus:border-primary_variant_1 block w-full p-2.5"
+            placeholder="Escribe aqui tu mensaje"></textarea>
+    </div>
+    <button
+        type="submit"
+        class="my-4 py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary sm:w-fit hover:bg-primary_variant_1 focus:ring-4 focus:outline-none focus:ring-primary_variant_2"
+        >Enviar mensaje</button
+    >
+</form>

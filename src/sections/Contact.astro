@@ -1,1 +1,23 @@
-<h1>soy contacto</h1>
+---
+import { Image } from "astro:assets";
+import image_card from "../assets/card-energia-riojana.png";
+import Form from "../components/Form.astro";
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen text-gray-900 py-32"
+    id="seccion_contact"
+>
+    <article class="w-3/4">
+        <div class="flex flex-row gap-12 items-center justify-center">
+            <div class="flex flex-col justify-center gap-4">
+                <h1 class="text-4xl font-extrabold">Contacto</h1>
+                <p class="text-xl">
+                    dejanos tu mensaje y nos pondremos en contacto a la brevedad
+                </p>
+                <Form />
+            </div>
+            <Image src={image_card} alt="imagen energia riojana" width={450} />
+        </div>
+    </article>
+</section>

@@ -5,8 +5,10 @@ import icono_infra from "../../assets/icono-infra.svg";
 import icono_conciencia from "../../assets/icono-conciencia.svg";
 ---
 
-<article class="w-3/4 p-8 flex flex-col gap-8 items-start justify-center my-8">
-    <section class="w-3/4 flex flex-col gap-2">
+<article
+    class="w-5/6 md:w-3/4 p-4 md:p-8 flex flex-col gap-8 items-start justify-center my-8"
+>
+    <section class="md:w-3/4 flex flex-col gap-2">
         <h1 class="text-5xl font-bold">Impacto Positivo</h1>
         <p>
             Cada proyecto que llevamos a cabo representa una oportunidad para
@@ -14,22 +16,22 @@ import icono_conciencia from "../../assets/icono-conciencia.svg";
             acciones, hemos logrado:
         </p>
     </section>
-    <section class="flex flex-col items-start w-3/4">
+    <section class="flex flex-col items-start md:w-3/4">
         <article class="flex flex-row gap-4 p-2 items-center justify-center">
             <Image src={icono_co2} alt="co2" width={80} />
-            <p class="text-lg font-semibold">
+            <p class="text-sm md:text-lg font-semibold">
                 Reducir la emisión de toneladas de CO2.
             </p>
         </article>
         <article class="flex flex-row gap-4 p-2 items-center justify-center">
             <Image src={icono_infra} alt="co2" width={80} />
-            <p class="text-lg font-semibold">
+            <p class="text-sm md:text-lg font-semibold">
                 Mejorar la infraestructura energética de La Rioja.
             </p>
         </article>
         <article class="flex flex-row gap-4 p-2 items-center justify-center">
             <Image src={icono_conciencia} alt="co2" width={80} />
-            <p class="text-lg font-semibold">
+            <p class="text-sm md:text-lg font-semibold">
                 Fomentar la conciencia ambiental y el uso responsable de los
                 recursos.
             </p>

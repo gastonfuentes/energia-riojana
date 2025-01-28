@@ -12,8 +12,8 @@ const { titulo, descripcion, imagen } = Astro.props;
     style=`background-image: url(${imagen});`
     class="flex flex-col justify-center items-center h-screen bg-cover text-white"
 >
-    <article class="w-3/4">
-        <h1 class="text-6xl font-extrabold">{titulo}</h1>
-        <p class="text-xl">{descripcion}</p>
+    <article class="md:w-3/4">
+        <h1 class="text-4xl md:text-6xl font-extrabold">{titulo}</h1>
+        <p class="md:text-xl">{descripcion}</p>
     </article>
 </section>

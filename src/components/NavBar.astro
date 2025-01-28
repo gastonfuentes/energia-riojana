@@ -2,9 +2,16 @@
 import { Image } from "astro:assets";
 import logo_horizontal from "../assets/logo-horizontal-blanco.svg";
 
+const links = [
+    { href: "/", text: "Inicio" },
+    { href: "/institucional/", text: "Institucional" },
+    { href: "/alta_tencion/", text: "Alta Tencion" },
+    { href: "/fotovoltaica/", text: "Fotovoltaica" },
+    { href: "/#seccion_contact", text: "Contacto" },
+];
+
 /* para obtener ruta de donde estamos parados*/
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="md:absolute w-full">
@@ -47,51 +54,24 @@ const currentPath = pathname.slice(1);
             <ul
                 class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"
             >
-                <li>
-                    <a
-                        href="/"
-                        class={currentPath === ""
-                            ? "text-primary"
-                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
-                        aria-current="page">Inicio</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="/institucional"
-                        class={currentPath === "institucional"
-                            ? "text-primary"
-                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
-                        >Institucional</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="/alta_tencion"
-                        class={currentPath === "alta_tencion"
-                            ? "text-primary"
-                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
-                        >Alta Tencion</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="/fotovoltaica"
-                        class={currentPath === "fotovoltaica"
-                            ? "text-primary"
-                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
-                        >Fotovoltaica</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="/#seccion_contact"
-                        class={currentPath === "contacto"
-                            ? "text-primary"
-                            : "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0"}
-                        >Contacto</a
-                    >
-                </li>
+                {
+                    links.map(({ href, text }) => (
+                        <li>
+                            <a
+                                href={href}
+                                class:list={[
+                                    "block py-2 px-3 text-white hover:text-primary_variant_2 md:p-0",
+                                    {
+                                        "border-b-2 border-primary":
+                                            currentPath === href,
+                                    },
+                                ]}
+                            >
+                                {text}
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
         </div>
     </div>

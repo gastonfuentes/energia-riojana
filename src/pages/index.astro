@@ -7,8 +7,6 @@ import Footer from "../sections/Footer.astro";
 import OffGrid from "../sections/OffGrid.astro";
 import OnGrid from "../sections/OnGrid.astro";
 import Data2 from "../sections/Data2.astro";
-import HeroPage from "../components/HeroPage.astro";
-import { Image } from "astro:assets";
 import Hero from "../sections/Hero.astro";
 
 const title = "Energia Riojana | Home";
@@ -17,7 +15,7 @@ const title = "Energia Riojana | Home";
 <Layout title={title}>
 	<Hero />
 
-	<main class="flex flex-col gap-4 md:gap-0">
+	<main class="flex flex-col gap-4 md:gap-32">
 		<Benefits />
 		<Data />
 		<OnGrid />

@@ -4,26 +4,22 @@ import image_beneficios from "../assets/image-beneficios.png";
 ---
 
 <section
-    class="flex flex-col justify-center items-center h-screen text-gray-900 py-4 md:py-32 md:mt-8"
+    class="p-4 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-2 md:gap-4 w-5/6 md:w-3/4"
 >
-    <article class="w-3/4">
-        <div class="flex flex-col gap-4 md:gap-14 md:flex-row">
-            <Image
-                src={image_beneficios}
-                alt="imagen panel solar"
-                width={550}
-            />
-            <div class="flex flex-col items-center justify-center gap-4">
-                <h1 class="text-4xl font-extrabold">
-                    Energía Solar: Beneficios que Iluminan tu Futuro
-                </h1>
-                <p class="text-xl">
-                    La energía solar es sostenible, reduce costos a largo plazo
-                    y cuida el medio ambiente. Genera electricidad limpia,
-                    disminuye emisiones de carbono y aumenta el valor de las
-                    propiedades. ¡Una inversión inteligente y ecológica!
-                </p>
-            </div>
+    <article class="flex flex-col gap-4 md:gap-14 md:flex-row">
+        <figure class="md:w-1/2">
+            <Image src={image_beneficios} alt="imagen panel solar" />
+        </figure>
+        <div class="flex flex-col gap-2 md:gap-4 md:w-1/2">
+            <h1 class="text-4xl font-bold p-4">
+                Energía Solar: Beneficios que Iluminan tu Futuro
+            </h1>
+            <p class="p-4">
+                La energía solar es sostenible, reduce costos a largo plazo y
+                cuida el medio ambiente. Genera electricidad limpia, disminuye
+                emisiones de carbono y aumenta el valor de las propiedades. ¡Una
+                inversión inteligente y ecológica!
+            </p>
         </div>
     </article>
 </section>

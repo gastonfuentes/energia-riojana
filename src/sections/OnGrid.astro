@@ -4,19 +4,19 @@ import image_ongrid from "../assets/image_ongrid.png";
 ---
 
 <section
-    class="flex flex-col justify-center items-center h-screen text-gray-900 py-4 md:py-32"
+    class="p-4 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-2 md:gap-4 w-5/6 md:w-3/4"
 >
-    <article class="w-3/4">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-14">
-            <div class="flex flex-col justify-center gap-4">
-                <h1 class="text-4xl font-extrabold">Sistemas On Grid</h1>
-                <p class="text-xl">
-                    Los sistemas on-grid están conectados a la red eléctrica,
-                    permitiendo usar energía solar y vender el excedente a la
-                    red. Son ideales en zonas con acceso estable a electricidad
-                </p>
-            </div>
-            <Image src={image_ongrid} alt="imagen panel solar" width={550} />
+    <article class="flex flex-col gap-4 md:gap-14 md:flex-row">
+        <div class="flex flex-col gap-2 md:gap-4 md:w-1/2">
+            <h1 class="text-4xl font-bold p-4">Sistemas On Grid</h1>
+            <p class="p-4">
+                Los sistemas on-grid están conectados a la red eléctrica,
+                permitiendo usar energía solar y vender el excedente a la red.
+                Son ideales en zonas con acceso estable a electricidad
+            </p>
         </div>
+        <figure class="md:w-1/2">
+            <Image src={image_ongrid} alt="imagen panel solar" />
+        </figure>
     </article>
 </section>

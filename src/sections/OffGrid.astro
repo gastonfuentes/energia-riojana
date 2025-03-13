@@ -4,20 +4,20 @@ import image_offgrid from "../assets/image-offgrid.png";
 ---
 
 <section
-    class="flex flex-col justify-center items-center h-screen text-gray-900 py-4 md:py-32"
+    class="p-4 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-2 md:gap-4 w-5/6 md:w-3/4"
 >
-    <article class="w-3/4">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-14">
-            <Image src={image_offgrid} alt="imagen panel solar" width={550} />
-            <div class="flex flex-col justify-center gap-4">
-                <h1 class="text-4xl font-extrabold">Sistemas Off Grid</h1>
-                <p class="text-xl">
-                    Los sistemas off-grid funcionan de manera autónoma con
-                    baterías, perfectos para lugares remotos o sin conexión a la
-                    red. Ambos ofrecen soluciones adaptadas a distintas
-                    necesidades energéticas.
-                </p>
-            </div>
+    <article class="flex flex-col gap-4 md:gap-14 md:flex-row">
+        <figure class="md:w-1/2">
+            <Image src={image_offgrid} alt="imagen panel solar" />
+        </figure>
+        <div class="flex flex-col gap-2 md:gap-4 md:w-1/2">
+            <h1 class="text-4xl font-bold p-4">Sistemas Off Grid</h1>
+            <p class="p-4">
+                Los sistemas off-grid funcionan de manera autónoma con baterías,
+                perfectos para lugares remotos o sin conexión a la red. Ambos
+                ofrecen soluciones adaptadas a distintas necesidades
+                energéticas.
+            </p>
         </div>
     </article>
 </section>

@@ -5,21 +5,26 @@ import Contact from "../components/Contact.astro";
 ---
 
 <section
-    class="flex flex-col justify-center items-center h-screen text-gray-900 py-4 md:py-32"
-    id="seccion_contact"
+    class="p-4 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-2 md:gap-4 w-5/6 md:w-3/4"
 >
-    <article class="w-3/4">
+    <article class="flex flex-col">
         <div
             class="flex flex-col md:flex-row gap-4 md:gap-12 items-center justify-center"
         >
-            <div class="flex flex-col justify-center gap-4">
-                <h1 class="text-4xl font-extrabold">Contacto</h1>
-                <p class="text-xl">
+            <div class="flex flex-col justify-center">
+                <h1 class="text-4xl font-bold p-4">Contacto</h1>
+                <p class="p-4">
                     dejanos tu mensaje y nos pondremos en contacto a la brevedad
                 </p>
                 <Contact />
             </div>
-            <Image src={image_card} alt="imagen energia riojana" width={450} />
+            <figure class="hidden md:block">
+                <Image
+                    src={image_card}
+                    alt="imagen energia riojana"
+                    width={450}
+                />
+            </figure>
         </div>
     </article>
 </section>

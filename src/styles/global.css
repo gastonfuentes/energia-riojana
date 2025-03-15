@@ -1,0 +1,10 @@
+@import "tailwindcss";
+/* @config "tailwind.config.js"; */
+
+@theme {
+    --color-primary: EE5823;
+    --color-primary-variant-1: #EE2F23;
+	--color-primary-variant-2: #EE8123;
+	--color-generacion-distribuida: EE233F;
+	--color-sistemas-aislados: #EEA923;
+  }

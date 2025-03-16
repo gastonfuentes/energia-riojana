@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import image_vision from "../../assets/image-vision.png";
+---
+
+<article
+    id="alta_tension"
+    class="flex flex-col gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+>
+    <div class="flex flex-col md:flex-row md:gap-4">
+        <div class="md:w-1/2">
+            <h1 class="text-4xl font-bold p-4 bg-gray-100 rounded-xl">
+                Alta Tensión
+            </h1>
+            <p class="bg-gray-100 rounded-xl p-4">
+                Impulsamos el desarrollo de la infraestructura eléctrica de alta
+                tensión para optimizar la transmisión y distribución de energía
+                en La Rioja, fortaleciendo la estabilidad del sistema y
+                garantizando un suministro más eficiente y seguro.
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={image_vision} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col md:gap-4">
+        <h3 class="bg-gray-100 rounded-xl p-4 text-xl font-bold">
+            Nuestras obras en este segmento incluyen:
+        </h3>
+
+        <div class="flex items-center flex-col md:flex-row">
+            <div
+                class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium md:w-1/2"
+            >
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Construcción y ampliación de Estaciones Transformadoras
+                        (ETs)</span
+                    >, fundamentales para la estabilidad del sistema eléctrico.
+                </p>
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Trazado y vinculación de líneas de alta tensión (LAT)</span
+                    > en 132 kV, mejorando la interconexión entre regiones y optimizando
+                    la eficiencia del transporte de energía.
+                </p>
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Proyectos de interconexión con el Sistema Argentino de
+                        Interconexión (SADI)</span
+                    >, facilitando el acceso a energía de fuentes renovables y
+                    convencionales.
+                </p>
+            </div>
+            <div class="md:w-1/2 p-8 align-middle">
+                <p class="p-4 rounded-md text-2xl font-serif italic">
+                    <span class="font-bold text-2xl"> - </span>Estos desarrollos
+                    no solo refuerzan la infraestructura provincial, sino que
+                    también promueven la confiabilidad y calidad del servicio
+                    eléctrico en zonas estratégicas. <span
+                        class="font-bold text-2xl"
+                    >
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

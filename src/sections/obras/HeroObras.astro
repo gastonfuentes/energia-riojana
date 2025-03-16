@@ -1,0 +1,21 @@
+---
+import { getImage } from "astro:assets";
+import imagen_hero from "../../assets/image_institucional.jpg";
+const heroImage = await getImage({ src: imagen_hero });
+
+/* console.log(heroImage); */
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen bg-cover text-white"
+    style=`background-image: url(${heroImage.src});`
+>
+    <article class="w-3/4">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Obras Electricas</h1>
+        <p class="md:text-xl">
+            Desarrollamos y ejecutamos proyectos eléctricos estratégicos para
+            fortalecer el sistema energético de La Rioja, garantizando un
+            suministro confiable y sostenible con tecnología de vanguardia.
+        </p>
+    </article>
+</section>

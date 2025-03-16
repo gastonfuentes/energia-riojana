@@ -4,6 +4,7 @@ import "@fontsource-variable/montserrat";
 import NavBar from "../components/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import { NavBarShadcn } from "@/components/NavBarShadcn";
 
 interface Props {
 	title: string;
@@ -24,7 +25,9 @@ const { title } = Astro.props;
 		<ClientRouter />
 	</head>
 	<body class="bg-gray-300">
-		<NavBar />
+		<!-- <NavBar /> -->
+		<NavBarShadcn client:load />
+
 		<div class="w-full mx-auto">
 			<slot />
 		</div>

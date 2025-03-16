@@ -15,7 +15,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import LogoNavbar from "./LogoNavbar"
-import { NavigationMenuViewport } from "@radix-ui/react-navigation-menu"
+
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -79,35 +79,33 @@ export function NavBarShadcn() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Alta Tencion</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Obras Eléctricas</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <a
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
+                                        href="/obras-electricas"
                                     >
                                         {/*  <Icons.logo className="h-6 w-6" /> */}
                                         <div className="mb-2 mt-4 text-lg font-medium">
-                                            shadcn/ui
+                                            Obras Electricas
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
-                                            Beautifully designed components that you can copy and
-                                            paste into your apps. Accessible. Customizable. Open
-                                            Source.
+                                            proyectos eléctricos estratégicos para fortalecer el sistema energético de La Rioja con tecnología de vanguardia.
                                         </p>
                                     </a>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/docs" title="Introduction">
-                                Re-usable components built using Radix UI and Tailwind CSS.
+                            <ListItem href="/obras-electricas/#alta_tension" title="Alta Tensión">
+                                Desarrollamos infraestructura de alta tensión para optimizar la transmisión y distribución de energía en La Rioja.
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
-                                How to install dependencies and structure your app.
+                            <ListItem href="/docs/installation" title="Media Tensión">
+                                Mejoramos la distribución de energía en La Rioja con redes de media tensión, tecnología inteligente y nueva infraestructura.
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
+                            <ListItem href="/docs/primitives/typography" title="Iluminación Pública">
+                                Modernizamos la iluminación pública en La Rioja con tecnología LED para mayor seguridad, eficiencia y sostenibilidad.
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>

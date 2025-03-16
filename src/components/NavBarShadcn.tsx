@@ -101,10 +101,10 @@ export function NavBarShadcn() {
                             <ListItem href="/obras-electricas/#alta_tension" title="Alta Tensión">
                                 Desarrollamos infraestructura de alta tensión para optimizar la transmisión y distribución de energía en La Rioja.
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Media Tensión">
+                            <ListItem href="/obras-electricas/#media_tension" title="Media Tensión">
                                 Mejoramos la distribución de energía en La Rioja con redes de media tensión, tecnología inteligente y nueva infraestructura.
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Iluminación Pública">
+                            <ListItem href="/obras-electricas/#iluminacion_publica" title="Iluminación Pública">
                                 Modernizamos la iluminación pública en La Rioja con tecnología LED para mayor seguridad, eficiencia y sostenibilidad.
                             </ListItem>
                         </ul>

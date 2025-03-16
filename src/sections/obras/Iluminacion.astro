@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import image_vision from "../../assets/image-vision.png";
+---
+
+<article
+    id="iluminacion_publica"
+    class="flex flex-col gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+>
+    <div class="flex flex-col md:flex-row md:gap-4">
+        <div class="md:w-1/2">
+            <h1 class="text-4xl font-bold p-4 bg-gray-100 rounded-xl">
+                Iluminación Pública
+            </h1>
+            <p class="bg-gray-100 rounded-xl p-4">
+                En <span class="font-bold">Energía Riojana S.A.</span> trabajamos
+                para transformar los espacios urbanos y rurales con sistemas de iluminación
+                pública modernos y eficientes. Nuestro objetivo es mejorar la seguridad,
+                reducir el consumo energético y contribuir a la sostenibilidad ambiental
+                mediante:
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={image_vision} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col md:gap-4">
+        <!-- <h3 class="bg-gray-100 rounded-xl p-4 text-xl font-bold">
+            A través de nuestras obras de media tensión, logramos:
+        </h3> -->
+
+        <div class="flex items-center flex-col md:flex-row">
+            <div
+                class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium md:w-1/2"
+            >
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Instalación y modernización de luminarias LED</span
+                    >, disminuyendo el consumo energético y los costos de
+                    mantenimiento.
+                </p>
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Iluminación estratégica en rutas, accesos y zonas
+                        urbanas</span
+                    >, mejorando la visibilidad y seguridad para los ciudadanos.
+                </p>
+                <p class="bg-gray-200 p-4 rounded-md text-sm">
+                    <span class="font-bold">
+                        Montaje de Centros de Distribución y Subestaciones
+                        Transformadoras</span
+                    >, optimizando el abastecimiento en zonas urbanas y rurales.
+                </p>
+            </div>
+            <div class="md:w-1/2 p-8 align-middle">
+                <p class="p-4 rounded-md text-2xl font-serif italic">
+                    <span class="font-bold text-2xl"> - </span>Con estos
+                    proyectos, buscamos construir una provincia más iluminada,
+                    segura y eficiente, reduciendo la huella de carbono y
+                    optimizando el uso de recursos energéticos.
+                    <span class="font-bold text-2xl"> - </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

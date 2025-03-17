@@ -19,18 +19,18 @@ import LogoNavbar from "./LogoNavbar"
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
+        title: "Proyectos en desarrollo",
+        href: "/energia-solar",
         description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
+            "Proyectos que actualmente se encuentran en desarrollo.",
     },
     {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
+        title: "Proyectos desarrollados",
+        href: "/energia-solar",
         description:
-            "For sighted users to preview content available behind a link.",
+            "Proyectos finalizados.",
     },
-    {
+    /* {
         title: "Progress",
         href: "/docs/primitives/progress",
         description:
@@ -52,7 +52,7 @@ const components: { title: string; href: string; description: string }[] = [
         href: "/docs/primitives/tooltip",
         description:
             "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
+    }, */
 ]
 
 export function NavBarShadcn() {
@@ -112,9 +112,25 @@ export function NavBarShadcn() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Energia Solar</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                            <li className="row-span-3">
+                                <NavigationMenuLink asChild>
+                                    <a
+                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        href="/energia-solar"
+                                    >
+                                        {/*  <Icons.logo className="h-6 w-6" /> */}
+                                        <div className="mb-2 mt-4 text-lg font-medium">
+                                            Energia Solar
+                                        </div>
+                                        <p className="text-sm leading-tight text-muted-foreground">
+                                            Desarrollo Sustentable, tecnológico y el abastecimiento energético asegurado para sostener el crecimiento de la demanda.
+                                        </p>
+                                    </a>
+                                </NavigationMenuLink>
+                            </li>
                             {components.map((component) => (
                                 <ListItem
                                     key={component.title}

@@ -145,7 +145,7 @@ export function NavBarShadcn() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem >
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/">
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/contacto">
                         Contacto
                     </NavigationMenuLink>
                 </NavigationMenuItem>

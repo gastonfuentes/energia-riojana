@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { NavBarShadcn } from "@/components/NavBarShadcn";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -31,6 +32,8 @@ const { title } = Astro.props;
 		<div class="w-full mx-auto">
 			<slot />
 		</div>
+
+		<Footer />
 	</body>
 </html>
 

@@ -1,18 +1,24 @@
 ---
 import { Image } from "astro:assets";
 import logo_horizontal from "../assets/logo-horizontal.svg";
-import { MdAlternateEmail } from "react-icons/md";
+import {
+    MdAlternateEmail,
+    MdOutlineWhatsapp,
+    MdPhone,
+    MdWhatsapp,
+} from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
+import ersa_qr from "../assets/ersa_qr.png";
 ---
 
-<footer class="bg-white dark:bg-gray-900">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+<footer class="bg-white dark:bg-gray-900 p-10 md:p-0">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-12">
         <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
+            <div class="mb-6 md:mb-0 flex items-center">
                 <Image
                     src={logo_horizontal}
                     alt="logo horizontal ersa"
-                    width="184"
+                    width="250"
                 />
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -61,7 +67,7 @@ import { MdLocationOn } from "react-icons/md";
                             </a>
                         </li>
 
-                        <li>
+                        <li class="mb-4">
                             <a
                                 href="https://maps.app.goo.gl/GuEY43sCcK93r7268"
                                 class="hover:underline flex items-center gap-1"
@@ -70,25 +76,40 @@ import { MdLocationOn } from "react-icons/md";
                                 Buenos Aires 264</a
                             >
                         </li>
+                        <li class="mb-4">
+                            <a
+                                href="https:wa.me/+543804218592"
+                                class="hover:underline flex items-center gap-1"
+                            >
+                                <MdWhatsapp />
+                                +543804218592</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h2
                         class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
                     >
-                        Legal
+                        Seguinos
                     </h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline"
-                                >Privacy Policy</a
-                            >
+                            <a href="https://www.instagram.com/ersa.lr/">
+                                <Image
+                                    class="border rounded-lg"
+                                    src={ersa_qr}
+                                    alt="Imagen qr"
+                                    width={117}
+                                    height={153}
+                                />
+                            </a>
                         </li>
-                        <li>
+                        <!--  <li>
                             <a href="#" class="hover:underline"
                                 >Terms &amp; Conditions</a
                             >
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -96,14 +117,13 @@ import { MdLocationOn } from "react-icons/md";
         <hr
             class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
         />
-        <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="flex items-center justify-center">
             <span
                 class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-                >© 2023 <a href="https://flowbite.com/" class="hover:underline"
-                    >Flowbite™</a
-                >. All Rights Reserved.
+            >
+                © 2024 Energia Riojana. Todos los derechos reservados.
             </span>
-            <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <!-- <div class="flex mt-4 sm:justify-center sm:mt-0">
                 <a
                     href="#"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -193,7 +213,7 @@ import { MdLocationOn } from "react-icons/md";
                     </svg>
                     <span class="sr-only">Dribbble account</span>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>

@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import alta_tension from "../../assets/alta_tension.png";
+---
+
+<article
+    id="llama-solar"
+    class="flex flex-col gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+>
+    <header class="flex flex-col p-4">
+        <div>
+            <h1 class="text-4xl font-bold bg-gray-100 rounded-xl">
+                Llama Solar:
+            </h1>
+        </div>
+        <div>
+            <span class="text-3xl"> Energía Solar para Hogares Riojanos </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row md:gap-4">
+        <div class="md:w-1/2">
+            <p class="bg-gray-100 rounded-xl p-4">
+                Llama Solar es el programa de Energía Riojana S.A. que promueve
+                la incorporación de sistemas solares fotovoltaicos en viviendas
+                particulares de toda la provincia. Nuestro objetivo es que cada
+                familia tenga la posibilidad de generar su propia energía
+                limpia, reduciendo su factura eléctrica y ganando independencia
+                energética. Instalamos Parques Solares Residenciales con
+                potencias que van desde 1,5 kW hasta 2,5 kW, adaptados a las
+                necesidades de cada hogar. Estos sistemas permiten cubrir un
+                porcentaje significativo del consumo mensual, aportando además
+                al cuidado del ambiente mediante la disminución de emisiones de
+                CO₂.
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={alta_tension} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col md:gap-4">
+        <h3 class="bg-gray-100 rounded-xl p-4 text-xl font-bold">
+            Beneficios:
+        </h3>
+        <div class="grid md:grid-cols-5 grid-rows-2 gap-2">
+            <section
+                class="row-span-2 col-span-5 md:col-span-3 flex flex-wrap gap-2"
+            >
+                <article
+                    class="flex justify-center items-center rounded-xl p-4 bg-primary-variant-1 text-white w-full md:w-1/4"
+                >
+                    <h3 class="font-bold text-center">
+                        Ahorro económico desde el primer día.
+                    </h3>
+                </article>
+                <article
+                    class="flex justify-center items-center rounded-xl p-4 bg-primary-variant-1 text-white w-full md:w-1/4"
+                >
+                    <h3 class="font-bold text-center">
+                        Mayor autonomía energética.
+                    </h3>
+                </article>
+                <article
+                    class="flex justify-center items-center rounded-xl p-4 bg-primary-variant-1 text-white w-full md:w-1/4"
+                >
+                    <h3 class="font-bold text-center">
+                        Tecnología de última generación.
+                    </h3>
+                </article>
+                <article
+                    class="flex justify-center items-center rounded-xl p-4 bg-primary-variant-1 text-white w-full md:w-1/4"
+                >
+                    <h3 class="font-bold text-center">
+                        Financiación accesible.
+                    </h3>
+                </article>
+                <article
+                    class="flex justify-center items-center rounded-xl p-4 bg-primary-variant-1 text-white w-full md:w-1/4"
+                >
+                    <h3 class="font-bold text-center">
+                        Instalación rápida y segura.
+                    </h3>
+                </article>
+            </section>
+            <div
+                class="col-span-5 md:col-span-2 row-span-2 flex items-center justify-center"
+            >
+                <p
+                    class="p-4 rounded-md text-2xl font-serif italic bg-gray-200"
+                >
+                    <span class="font-bold text-2xl"> - </span>Con Llama Solar,
+                    llevamos la transición energética a cada rincón de La Rioja. <span
+                        class="font-bold text-2xl"
+                    >
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

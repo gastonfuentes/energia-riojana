@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import alta_tension from "../../assets/alta_tension.png";
+---
+
+<article
+    id="parques-municipales"
+    class="flex flex-col gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+>
+    <header class="flex flex-col p-4">
+        <div>
+            <h1 class="text-4xl font-bold bg-gray-100 rounded-xl">
+                Parques Solares Municipales:
+            </h1>
+        </div>
+        <div>
+            <span class="text-3xl"> Municipios Sustentables </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row md:gap-4">
+        <div class="md:w-1/2">
+            <p class="bg-gray-100 rounded-xl p-4">
+                Desde Energía Riojana S.A. desarrollamos e instalamos Parques
+                Solares de 50 kW para cada uno de los municipios de la
+                provincia, en el marco de un plan estratégico para la reducción
+                del gasto público en energía y la promoción de prácticas
+                sustentables en la gestión local. Estos parques solares
+                representan entre un 15% y un 20% del consumo total de energía
+                que los municipios mantienen ante la distribuidora eléctrica, lo
+                que genera un ahorro económico directo y una menor dependencia
+                de fuentes de energía tradicionales.
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={alta_tension} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col md:gap-4">
+        <h3 class="bg-gray-100 rounded-xl p-4 text-xl font-bold">
+            Impacto positivo:
+        </h3>
+        <div class="grid md:grid-cols-6 grid-rows-2 gap-2 md:gap-8">
+            <section
+                class="row-span-2 col-span-5 md:col-span-3 flex flex-wrap gap-2"
+            >
+                <article
+                    class="rounded-xl p-4 bg-primary-variant-1 text-white w-full"
+                >
+                    <h3 class="font-bold">Ahorro energético y económico.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-primary-variant-1 text-white w-full"
+                >
+                    <h3 class="font-bold">
+                        Mejora en la eficiencia de los servicios públicos.
+                    </h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-primary-variant-1 text-white w-full"
+                >
+                    <h3 class="font-bold">
+                        Reducción de la huella de carbono.
+                    </h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-primary-variant-1 text-white w-full"
+                >
+                    <h3 class="font-bold">
+                        Compromiso con la Agenda 2030 y los ODS.
+                    </h3>
+                </article>
+            </section>
+            <div
+                class="col-span-5 md:col-span-3 row-span-2 flex items-center justify-center"
+            >
+                <p
+                    class="p-4 rounded-md text-2xl font-serif italic bg-gray-200"
+                >
+                    <span class="font-bold text-2xl"> - </span>Estamos
+                    transformando a cada municipio en un actor protagonista de
+                    la revolución energética en La Rioja. <span
+                        class="font-bold text-2xl"
+                    >
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

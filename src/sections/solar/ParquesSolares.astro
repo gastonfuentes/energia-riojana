@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import alta_tension from "../../assets/alta_tension.png";
+---
+
+<article
+    id="parques-solares"
+    class="w-5/6 md:w-3/4 p-4 md:p-8 flex flex-col gap-6 my-8 border-1 border-gray-200 rounded-lg"
+>
+    <header class="flex flex-col p-4">
+        <div>
+            <h1 class="text-4xl font-bold">Parques Solares Aislados:</h1>
+        </div>
+        <div>
+            <span class="text-3xl"> Energía para Todos </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row md:gap-4">
+        <figure class="md:w-1/2">
+            <Image src={alta_tension} alt="imagen panel solar" />
+        </figure>
+        <div class="md:w-1/2">
+            <p class="p-4">
+                En Energía Riojana S.A. creemos que el acceso a la energía
+                eléctrica es un derecho esencial. Por eso diseñamos e instalamos
+                Parques Solares Aislados (Off Grid) en zonas rurales y alejadas,
+                donde es técnica o económicamente inviable extender líneas
+                eléctricas convencionales.
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:gap-4">
+        <h3 class="p-4 text-xl font-bold">Cada sistema está compuesto por:</h3>
+        <div class="grid md:grid-cols-6 grid-rows-2 gap-2 md:gap-8">
+            <section
+                class="row-span-2 col-span-6 md:col-span-3 flex flex-wrap gap-2"
+            >
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full"
+                >
+                    <h3>Paneles solares de alta eficiencia.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full"
+                >
+                    <h3>Inversor inteligente de 3 kW.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full"
+                >
+                    <h3>
+                        2 baterías de litio con capacidad de almacenamiento de
+                        larga duración.
+                    </h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full"
+                >
+                    <h3>
+                        Un freezer inverter, para garantizar la conservación de
+                        alimentos.
+                    </h3>
+                </article>
+            </section>
+            <div
+                class="col-span-5 md:col-span-3 row-span-2 flex flex-col items-center justify-center"
+            >
+                <p class="p-4">
+                    Estos sistemas permiten una vida útil estimada de 20 años,
+                    brindando una solución energética completa, autónoma y
+                    sustentable para familias y comunidades que antes no
+                    contaban con servicio eléctrico.
+                </p>
+                <p
+                    class="p-4 rounded-md text-2xl font-serif italic bg-gray-200 text-gray-800"
+                >
+                    <span class="font-bold text-2xl"> - </span>La energía llega
+                    donde nadie más puede. <span class="font-bold text-2xl">
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

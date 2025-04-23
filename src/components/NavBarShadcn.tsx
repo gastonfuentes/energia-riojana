@@ -19,40 +19,40 @@ import LogoNavbar from "./LogoNavbar"
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "Proyectos en desarrollo",
-        href: "/energia-solar",
+        title: "Llama Solar – Energía Solar para Hogares Riojanos",
+        href: "/energia-solar/#llama-solar",
         description:
-            "Proyectos que actualmente se encuentran en desarrollo.",
+            "Llama Solar es el programa de Energía Riojana S.A. que promueve la incorporación de sistemas solares fotovoltaicos en viviendas ...",
     },
     {
-        title: "Proyectos desarrollados",
-        href: "/energia-solar",
+        title: "Parques Solares Municipales – Municipios Sustentables",
+        href: "/energia-solar/#parques-municipales",
         description:
-            "Proyectos finalizados.",
+            "Desde Energía Riojana S.A. desarrollamos e instalamos Parques Solares de 50 kW para cada uno de los municipios de la provincia.",
+    },
+    {
+        title: "Parques Solares Aislados – Energía para Todos",
+        href: "/energia-solar/#parques-solares",
+        description:
+            "Diseñamos e instalamos Parques Solares Aislados (Off Grid) en zonas ",
+    },
+    {
+        title: "Parques Solares Privados – Inversión con Futuro",
+        href: "/energia-solar/#parques-privados",
+        description: "Acompañamos a empresas, industrias, comercios y desarrolladores en su proceso de reconversión energética.",
     },
     /* {
-        title: "Progress",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
         title: "Tabs",
         href: "/docs/primitives/tabs",
         description:
             "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     }, */
+    /*  {
+         title: "Tooltip",
+         href: "/docs/primitives/tooltip",
+         description:
+             "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+     }, */
 ]
 
 export function NavBarShadcn() {
@@ -113,16 +113,16 @@ export function NavBarShadcn() {
 
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Energia Solar</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            <li className="row-span-3">
+                    <NavigationMenuContent >
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                            <li className="row-span-4 col-span-1">
                                 <NavigationMenuLink asChild>
                                     <a
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                         href="/energia-solar"
                                     >
                                         {/*  <Icons.logo className="h-6 w-6" /> */}
-                                        <div className="mb-2 mt-4 text-lg font-medium">
+                                        <div className="mb-2 text-lg font-medium">
                                             Energia Solar
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
@@ -136,6 +136,7 @@ export function NavBarShadcn() {
                                     key={component.title}
                                     title={component.title}
                                     href={component.href}
+                                /*  className="col-span-2" */
                                 >
                                     {component.description}
                                 </ListItem>

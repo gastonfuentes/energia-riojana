@@ -126,7 +126,7 @@ export function NavBarShadcn() {
                                             Energia Solar
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
-                                            Desarrollo Sustentable, tecnológico y el abastecimiento energético asegurado para sostener el crecimiento de la demanda.
+                                            Impulsamos el desarrollo solar en toda la provincia, acercando soluciones energéticas limpias y eficientes a hogares, municipios y empresas, con tecnología de última generación y un fuerte compromiso con la sustentabilidad.
                                         </p>
                                     </a>
                                 </NavigationMenuLink>

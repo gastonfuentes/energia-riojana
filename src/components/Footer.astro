@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo_horizontal from "../assets/logo-horizontal.svg";
+import logo_horizontal from "../assets/logo-horizontal-blanco.svg";
 import {
     MdAlternateEmail,
     MdOutlineWhatsapp,
@@ -11,7 +11,7 @@ import { MdLocationOn } from "react-icons/md";
 import ersa_qr from "../assets/ersa_qr.png";
 ---
 
-<footer class="bg-white dark:bg-gray-900 p-10 md:p-0">
+<footer class="bg-gray-800 dark:bg-gray-900 p-10 md:p-0">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-12">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0 flex items-center">
@@ -22,15 +22,16 @@ import ersa_qr from "../assets/ersa_qr.png";
                 />
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                <div>
+                <div class="p-4 rounded-lg">
                     <h2
-                        class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+                        class="mb-6 font-semibold text-gray-300 dark:text-white"
                     >
                         Site Map
                     </h2>
-                    <ul
-                        class="text-gray-500 dark:text-gray-400 font-medium text-sm"
-                    >
+                    <ul class="text-gray-400 dark:text-gray-400 text-sm">
+                        <li class="mb-4">
+                            <a href="/" class="hover:underline">Inicio</a>
+                        </li>
                         <li class="mb-4">
                             <a href="/institucional/" class="hover:underline"
                                 >Institucional</a
@@ -41,22 +42,25 @@ import ersa_qr from "../assets/ersa_qr.png";
                                 >Obras Eléctricas</a
                             >
                         </li>
-                        <li>
+                        <li class="mb-4">
                             <a href="/energia-solar/" class="hover:underline"
                                 >Energia Solar</a
                             >
                         </li>
+                        <li>
+                            <a href="/contacto/" class="hover:underline"
+                                >Contacto</a
+                            >
+                        </li>
                     </ul>
                 </div>
-                <div>
+                <div class="p-4">
                     <h2
-                        class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+                        class="mb-6 font-semibold text-gray-300 dark:text-white"
                     >
                         Contacto
                     </h2>
-                    <ul
-                        class="text-gray-500 dark:text-gray-400 font-medium text-sm"
-                    >
+                    <ul class="text-gray-400 dark:text-gray-400 text-sm">
                         <li class="mb-4">
                             <a
                                 href="mailto:gastonnicolasfuentes@gmail.com"
@@ -87,17 +91,16 @@ import ersa_qr from "../assets/ersa_qr.png";
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div class="p-4">
                     <h2
-                        class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+                        class="mb-6 font-semibold text-gray-300 dark:text-white"
                     >
                         Seguinos
                     </h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <ul class="text-gray-400 dark:text-gray-400 font-medium">
                         <li class="mb-4">
                             <a href="https://www.instagram.com/ersa.lr/">
                                 <Image
-                                    class="border rounded-lg"
                                     src={ersa_qr}
                                     alt="Imagen qr"
                                     width={117}
@@ -118,7 +121,7 @@ import ersa_qr from "../assets/ersa_qr.png";
             class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
         /> -->
     </div>
-    <div class="flex items-center justify-center bg-primary-variant-1 p-8">
+    <div class="flex items-center justify-center bg-gray-900 p-8">
         <span class="text-sm sm:text-center text-white">
             © 2025 Energia Riojana. Todos los derechos reservados.
         </span>

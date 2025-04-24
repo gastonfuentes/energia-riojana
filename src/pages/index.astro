@@ -8,6 +8,8 @@ import OffGrid from "../sections/OffGrid.astro";
 import OnGrid from "../sections/OnGrid.astro";
 import Data2 from "../sections/Data2.astro";
 import Hero from "../sections/Hero.astro";
+import DividerUp from "@/sections/DividerUp.astro";
+import DividerDown from "@/sections/DividerDown.astro";
 
 const title = "Energia Riojana | Home";
 ---
@@ -16,13 +18,19 @@ const title = "Energia Riojana | Home";
 	<Hero />
 
 	<main
-		class="flex flex-col items-center justify-center text-gray-800 py-8 md:py-24 gap-8"
+		class="flex flex-col items-center justify-center text-gray-800 py-8 md:py-24"
 	>
 		<Benefits />
+		<DividerUp />
 		<Data />
-		<OnGrid />
-		<OffGrid />
+		<DividerDown />
+		<div class="flex flex-col gap-8 items-center justify-center">
+			<OnGrid />
+			<OffGrid />
+		</div>
+		<DividerUp />
 		<Data2 />
+		<DividerDown />
 		<Contacto />
 	</main>
 	<!-- <Footer /> -->

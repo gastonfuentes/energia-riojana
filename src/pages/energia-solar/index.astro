@@ -3,10 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 import HeroSolar from "@/sections/solar/HeroSolar.astro";
 import LlamaSolar from "@/sections/solar/LlamaSolar.astro";
 import ParquesMunicipales from "@/sections/solar/ParquesMunicipales.astro";
-import { Image } from "astro:assets";
-import divisor_arriba from "../../assets/divisor_arriba.svg";
 import ParquesSolares from "@/sections/solar/ParquesSolares.astro";
 import ParquesPrivados from "@/sections/solar/ParquesPrivados.astro";
+import DividerUp from "@/sections/DividerUp.astro";
 ---
 
 <Layout title="Energia Riojana | Alta Tencion">
@@ -16,7 +15,8 @@ import ParquesPrivados from "@/sections/solar/ParquesPrivados.astro";
             <LlamaSolar />
             <ParquesMunicipales />
         </section>
-        <Image src={divisor_arriba} alt="division" />
+
+        <DividerUp />
 
         <section
             class="bg-primary-variant-1 w-full flex flex-col items-center justify-center text-white gap-8"

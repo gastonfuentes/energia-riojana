@@ -5,11 +5,16 @@ import iluminacion_publica from "../../assets/iluminacion_publica.png";
 
 <article
     id="iluminacion_publica"
-    class="flex flex-col md:gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+    class="flex flex-col gap-4 md:gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
 >
-    <h1 class="text-4xl font-bold p-4 bg-gray-100 rounded-xl">
-        Iluminación Pública
-    </h1>
+    <header class="flex flex-col p-8 bg-gray-200 rounded-xl">
+        <div>
+            <h1 class="text-4xl font-bold rounded-xl">Iluminación Pública</h1>
+        </div>
+        <!-- <div>
+            <span class="text-3xl"> Energía Solar para Hogares Riojanos </span>
+        </div> -->
+    </header>
     <div class="flex flex-col md:flex-row md:gap-4 items-center">
         <div class="md:w-1/2">
             <p class="bg-gray-100 rounded-xl p-4">
@@ -34,41 +39,48 @@ import iluminacion_publica from "../../assets/iluminacion_publica.png";
         </figure>
     </div>
 
-    <div class="flex flex-col md:gap-4">
+    <div class="flex flex-col gap-4">
         <!-- <h3 class="bg-gray-100 rounded-xl p-4 text-xl font-bold">
             A través de nuestras obras de media tensión, logramos:
         </h3> -->
 
-        <div class="flex items-center flex-col md:flex-row">
-            <div
-                class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium md:w-1/2"
+        <div class="flex flex-col md:flex-row gap-4">
+            <section
+                class="md:w-1/2 flex flex-col md:flex-row gap-2 p-4 bg-gray-200 rounded-xl"
             >
-                <p
-                    class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
+                <div
+                    class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium"
                 >
-                    <span class="font-semibold">
-                        Instalación y modernización de luminarias LED</span
-                    >, disminuyendo el consumo energético y los costos de
-                    mantenimiento.
-                </p>
-                <p
-                    class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
-                >
-                    <span class="font-semibold">
-                        Iluminación estratégica en rutas, accesos y zonas
-                        urbanas</span
-                    >, mejorando la visibilidad y seguridad para los ciudadanos.
-                </p>
-                <p
+                    <p
+                        class="bg-gray-700 text-white p-4 rounded-md text-sm font-light"
+                    >
+                        <span class="font-semibold">
+                            Instalación y modernización de luminarias LED</span
+                        >, disminuyendo el consumo energético y los costos de
+                        mantenimiento.
+                    </p>
+                    <p
+                        class="bg-gray-700 text-white p-4 rounded-md text-sm font-light"
+                    >
+                        <span class="font-semibold">
+                            Iluminación estratégica en rutas, accesos y zonas
+                            urbanas</span
+                        >, mejorando la visibilidad y seguridad para los
+                        ciudadanos.
+                    </p>
+                    <!-- <p
                     class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
                 >
                     <span class="font-semibold">
                         Montaje de Centros de Distribución y Subestaciones
                         Transformadoras</span
                     >, optimizando el abastecimiento en zonas urbanas y rurales.
-                </p>
-            </div>
-            <div class="md:w-1/2 p-8 align-middle">
+                </p> -->
+                </div>
+            </section>
+            <div
+                class="md:w-1/2 p-2 flex items-center justify-center bg-primary-variant-1 rounded-2xl text-white"
+            >
                 <p
                     class="p-4 rounded-md text-2xl font-serif italic text-center"
                 >

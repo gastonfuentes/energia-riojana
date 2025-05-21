@@ -5,10 +5,17 @@ import alta_tension from "../../assets/alta_tension.png";
 
 <article
     id="alta_tension"
-    class="flex flex-col md:gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+    class="flex flex-col gap-4 md:gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
 >
-    <h1 class="text-4xl font-bold p-4 bg-gray-100 rounded-xl">Alta Tensión</h1>
-    <div class="flex flex-col md:flex-row md:gap-4">
+    <header class="flex flex-col p-8 bg-gray-200 rounded-xl">
+        <div>
+            <h1 class="text-4xl font-bold rounded-xl">Alta Tensión</h1>
+        </div>
+        <!-- <div>
+            <span class="text-3xl"> Energía Solar para Hogares Riojanos </span>
+        </div> -->
+    </header>
+    <div class="flex flex-col md:flex-row md:gap-8 items-center md:text-xl">
         <div class="md:w-1/2">
             <p class="bg-gray-100 rounded-xl p-4">
                 Impulsamos el desarrollo de la infraestructura eléctrica de alta
@@ -29,40 +36,50 @@ import alta_tension from "../../assets/alta_tension.png";
         </figure>
     </div>
 
-    <div class="flex flex-col md:gap-4">
-        <h3 class="p-4 text-xl font-bold">Nuestras obras incluyen:</h3>
+    <div class="flex flex-col gap-4">
+        <h3 class="bg-gray-200 rounded-xl p-4 text-xl font-bold md:text-2xl">
+            Nuestras obras incluyen:
+        </h3>
 
-        <div class="flex items-center flex-col md:flex-row">
-            <div
-                class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium md:w-1/2"
+        <div class="flex flex-col md:flex-row gap-4">
+            <section
+                class="md:w-1/2 flex flex-col md:flex-row gap-2 p-4 bg-gray-200 rounded-xl"
             >
-                <p
-                    class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
+                <div
+                    class="flex flex-wrap md:flex-col gap-2 text-gray-800 font-medium"
                 >
-                    <span class="font-semibold">
-                        Construcción y ampliación de Estaciones Transformadoras
-                        (ETs)</span
-                    >, fundamentales para la estabilidad del sistema eléctrico.
-                </p>
-                <p
-                    class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
-                >
-                    <span class="font-semibold">
-                        Trazado y vinculación de líneas de alta tensión (LAT)</span
-                    > en 132 kV, mejorando la interconexión entre regiones y optimizando
-                    la eficiencia del transporte de energía.
-                </p>
-                <p
-                    class="bg-primary-variant-1 text-white p-4 rounded-md text-sm font-light"
-                >
-                    <span class="font-semibold">
-                        Proyectos de interconexión con el Sistema Argentino de
-                        Interconexión (SADI)</span
-                    >, facilitando el acceso a energía de fuentes renovables y
-                    convencionales.
-                </p>
-            </div>
-            <div class="md:w-1/2 p-8 align-middle">
+                    <p
+                        class="bg-gray-700 text-white p-4 rounded-md text-sm font-light"
+                    >
+                        <span class="font-semibold">
+                            Construcción y ampliación de Estaciones
+                            Transformadoras (ETs)</span
+                        >, fundamentales para la estabilidad del sistema
+                        eléctrico.
+                    </p>
+                    <p
+                        class="bg-gray-700 text-white p-4 rounded-md text-sm font-light"
+                    >
+                        <span class="font-semibold">
+                            Trazado y vinculación de líneas de alta tensión
+                            (LAT)</span
+                        > en 132 kV, mejorando la interconexión entre regiones y
+                        optimizando la eficiencia del transporte de energía.
+                    </p>
+                    <p
+                        class="bg-gray-700 text-white p-4 rounded-md text-sm font-light"
+                    >
+                        <span class="font-semibold">
+                            Proyectos de interconexión con el Sistema Argentino
+                            de Interconexión (SADI)</span
+                        >, facilitando el acceso a energía de fuentes renovables
+                        y convencionales.
+                    </p>
+                </div>
+            </section>
+            <div
+                class="md:w-1/2 p-2 flex items-center justify-center bg-primary-variant-1 rounded-2xl text-white"
+            >
                 <p
                     class="p-4 rounded-md text-2xl font-serif italic text-center"
                 >

@@ -10,6 +10,14 @@
     action="/success"
     method="POST"
 >
+    <input type="hidden" name="form-name" value="contact" />
+    <input
+        type="text"
+        name="bot-field"
+        class="hidden"
+        tabindex="-1"
+        autocomplete="off"
+    />
     <div>
         <label for="email" class="block mb-2 text-sm font-medium text-gray-500"
             >Tu correo</label
@@ -35,6 +43,24 @@
             placeholder="Dejame aqui el asunto de tu mensaje"
             required
             name="asunto"
+        />
+    </div>
+    <div>
+        <label
+            for="telefono"
+            class="block mb-2 text-sm font-medium text-gray-500"
+            >Teléfono</label
+        >
+        <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            inputmode="tel"
+            autocomplete="tel"
+            pattern="\\+?[0-9\\s()\\-]{7,20}"
+            class="shadow-sm bg-gray-50 border-riant_2 text-gray-900 text-sm rounded-lg focus:ring-riant_1 focus:border-riant_1 block w-full p-2.5"
+            placeholder="+54 9 380 000 0000"
+            required
         />
     </div>
     <div class="sm:col-span-2">

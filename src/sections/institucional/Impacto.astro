@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import icono_co2 from "../../assets/icono-co2.svg";
+import icono_infra from "../../assets/icono-infra.svg";
+import icono_conciencia from "../../assets/icono-conciencia.svg";
+---
+
+<article
+    class="flex flex-col gap-4 md:gap-8 bg-gray-700 rounded-2xl p-4 md:p-8 md:w-3/4 mx-8"
+>
+    <section class="flex flex-col gap-2">
+        <header class="flex flex-col p-8 bg-gray-600 rounded-xl">
+            <div>
+                <h1 class="text-4xl font-bold">Impacto Positivo</h1>
+            </div>
+            <div>
+                <span class="text-xl">
+                    Cada proyecto que llevamos a cabo representa una oportunidad
+                    para avanzar hacia un futuro más sostenible. A través de
+                    nuestras acciones, hemos logrado:
+                </span>
+            </div>
+        </header>
+    </section>
+    <section class="flex flex-col items-start md:w-3/4 gap-4">
+        <article
+            class="flex flex-row gap-4 p-4 items-center justify-center bg-gray-600 rounded-xl"
+        >
+            <Image src={icono_co2} alt="co2" width={80} />
+            <p class="text-sm md:text-lg">
+                Reducir la emisión de toneladas de CO2.
+            </p>
+        </article>
+        <article
+            class="flex flex-row gap-4 p-4 items-center justify-center bg-gray-600 rounded-xl"
+        >
+            <Image src={icono_infra} alt="co2" width={80} />
+            <p class="text-sm md:text-lg">
+                Mejorar la infraestructura energética de La Rioja.
+            </p>
+        </article>
+        <article
+            class="flex flex-row gap-4 p-4 items-center justify-center bg-gray-600 rounded-xl"
+        >
+            <Image src={icono_conciencia} alt="co2" width={80} />
+            <p class="text-sm md:text-lg">
+                Fomentar la conciencia ambiental y el uso responsable de los
+                recursos.
+            </p>
+        </article>
+    </section>
+</article>

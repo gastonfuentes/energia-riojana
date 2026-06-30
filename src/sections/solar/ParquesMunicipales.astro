@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import alta_tension from "../../assets/municipales.png";
+---
+
+<article
+    id="parques-municipales"
+    class="flex flex-col gap-4 md:gap-8 bg-gray-100 rounded-2xl p-4 md:p-8"
+>
+    <header class="flex flex-col p-8 bg-gray-200 rounded-xl">
+        <div>
+            <h1 class="text-4xl font-bold">Parques Solares Municipales:</h1>
+        </div>
+        <div>
+            <span class="text-3xl"> Municipios Sustentables </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row md:gap-16 items-center md:text-xl">
+        <div class="md:w-1/2">
+            <p class="bg-gray-100 rounded-xl p-4">
+                Desde Energía Riojana S.A. desarrollamos e instalamos Parques
+                Solares de 50 kW para cada uno de los municipios de la
+                provincia, en el marco de un plan estratégico para la reducción
+                del gasto público en energía y la promoción de prácticas
+                sustentables en la gestión local.
+            </p>
+            <p class="bg-gray-100 rounded-xl p-4">
+                Estos parques solares representan entre un 15% y un 20% del
+                consumo total de energía que los municipios mantienen ante la
+                distribuidora eléctrica, lo que genera un ahorro económico
+                directo y una menor dependencia de fuentes de energía
+                tradicionales.
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={alta_tension} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col gap-4">
+        <h3 class="bg-gray-200 rounded-xl p-4 text-xl font-bold md:text-2xl">
+            Impacto positivo:
+        </h3>
+        <div class="flex flex-col md:flex-row gap-4">
+            <section
+                class="md:w-1/2 flex flex-col md:flex-row gap-2 p-4 bg-gray-200 rounded-xl"
+            >
+                <div class="flex flex-col gap-2 md:w-1/2">
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">
+                            Ahorro energético y económico.
+                        </h3>
+                    </article>
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">
+                            Mejora en la eficiencia de los servicios públicos.
+                        </h3>
+                    </article>
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">
+                            Compromiso con la Agenda 2030 y los ODS.
+                        </h3>
+                    </article>
+                </div>
+                <div class="flex flex-col gap-2 md:w-1/2">
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">
+                            Fomento de la economía local.
+                        </h3>
+                    </article>
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">Generación de empleo local.</h3>
+                    </article>
+                    <article
+                        class="flex items-center justify-center rounded-xl p-4 bg-gray-700 text-white w-full min-h-26 md:min-h-20"
+                    >
+                        <h3 class="text-center">
+                            Reducción de la huella de carbono.
+                        </h3>
+                    </article>
+                </div>
+            </section>
+            <div
+                class="md:w-1/2 p-2 flex items-center justify-center bg-primary-variant-1 rounded-2xl text-white"
+            >
+                <p
+                    class="p-4 text-2xl md:text-3xl font-serif italic text-center"
+                >
+                    <span class="font-bold text-2xl md:text-3xl">
+                        -
+                    </span>Estamos transformando a cada municipio en un actor
+                    protagonista de la revolución energética en La Rioja. <span
+                        class="font-bold text-2xl md:text-3xl"
+                    >
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

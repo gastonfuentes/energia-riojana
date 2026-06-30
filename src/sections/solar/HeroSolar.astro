@@ -1,0 +1,22 @@
+---
+import { getImage } from "astro:assets";
+import imagen_solar from "../../assets/image_solar.jpg";
+const heroImage = await getImage({ src: imagen_solar });
+
+/* console.log(heroImage); */
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen bg-cover text-white"
+    style=`background-image: url(${heroImage.src});`
+>
+    <article class="w-3/4">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Energia Solar</h1>
+        <p class="md:text-xl">
+            Impulsamos el desarrollo solar en toda la provincia, acercando
+            soluciones energéticas limpias y eficientes a hogares, municipios y
+            empresas, con tecnología de última generación y un fuerte compromiso
+            con la sustentabilidad.
+        </p>
+    </article>
+</section>

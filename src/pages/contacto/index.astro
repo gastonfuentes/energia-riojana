@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Contacto from "@/sections/Contacto.astro";
+import HeroContacto from "@/sections/contacto/HeroContacto.astro";
+import MapsContact from "@/sections/contacto/MapsContact.astro";
+---
+
+<Layout title="Energia Riojana | Contacto">
+    <HeroContacto />
+    <main class="flex flex-col items-center justify-center text-gray-800">
+        <section
+            class="flex flex-col py-8 md:py-24 gap-8 items-center justify-center"
+        >
+            <Contacto />
+
+            <MapsContact />
+        </section>
+    </main>
+</Layout>

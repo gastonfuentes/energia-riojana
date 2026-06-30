@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import alta_tension from "../../assets/privados.png";
+---
+
+<article
+    id="parques-privados"
+    class="flex flex-col gap-4 md:gap-8 bg-gray-700 rounded-2xl p-4 md:p-8 md:w-3/4 mx-8 mb-16"
+>
+    <header class="flex flex-col p-8 bg-gray-600 rounded-xl">
+        <div>
+            <h1 class="text-4xl font-bold">Parques Solares Privados:</h1>
+        </div>
+        <div>
+            <span class="text-3xl"> Inversión con Futuro </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col md:flex-row md:gap-16 items-center">
+        <div class="md:w-1/2 md:text-xl">
+            <p class="p-4">
+                Acompañamos a empresas, industrias, comercios y desarrolladores
+                en su proceso de reconversión energética, ofreciendo la
+                construcción de Parques Solares Privados adaptados a sus
+                necesidades operativas y financieras.
+            </p>
+            <p class="p-4">
+                Nuestros proyectos están diseñados con tecnología de vanguardia,
+                garantizando eficiencia, rendimiento y retorno de inversión.
+                Además, brindamos asesoramiento técnico y financiero para que
+                cada cliente pueda acceder a las mejores líneas de
+                financiamiento disponibles.
+            </p>
+        </div>
+        <figure class="md:w-1/2">
+            <Image src={alta_tension} alt="imagen panel solar" />
+        </figure>
+    </div>
+
+    <div class="flex flex-col gap-4">
+        <h3 class="p-4 text-xl md:text-2xl font-bold bg-gray-600 rounded-xl">
+            Ventajas para el sector privado:
+        </h3>
+        <div class="grid md:grid-cols-6 grid-rows-2 gap-4">
+            <section
+                class="row-span-2 col-span-6 md:col-span-3 flex flex-wrap gap-2 bg-gray-500 rounded-xl p-4"
+            >
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full md:w-1/3"
+                >
+                    <h3>Reducción de costos operativos.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full md:w-1/2"
+                >
+                    <h3>Mejora en la competitividad.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full md:w-1/2"
+                >
+                    <h3>Imagen corporativa sustentable.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full md:w-1/3"
+                >
+                    <h3>Rentabilidad a largo plazo.</h3>
+                </article>
+                <article
+                    class="rounded-xl p-4 bg-gray-200 text-gray-800 w-full md:w-1/3"
+                >
+                    <h3>Financiación accesible.</h3>
+                </article>
+            </section>
+            <div
+                class="col-span-6 md:col-span-3 row-span-2 flex flex-col items-center justify-center bg-primary-variant-1 rounded-2xl"
+            >
+                <p
+                    class="p-4 rounded-md text-2xl md:text-3xl font-serif italic text-white text-center"
+                >
+                    <span class="font-bold text-2xl md:text-3xl">
+                        -
+                    </span>Invertir en energía solar es apostar por el futuro,
+                    con el respaldo y la experiencia de Energía Riojana S.A.<span
+                        class="font-bold text-2xl md:text-3xl"
+                    >
+                        -
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>

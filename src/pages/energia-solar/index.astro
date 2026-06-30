@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeroSolar from "@/sections/solar/HeroSolar.astro";
+import LlamaSolar from "@/sections/solar/LlamaSolar.astro";
+import ParquesMunicipales from "@/sections/solar/ParquesMunicipales.astro";
+import ParquesSolares from "@/sections/solar/ParquesSolares.astro";
+import ParquesPrivados from "@/sections/solar/ParquesPrivados.astro";
+import DividerUp from "@/sections/DividerUp.astro";
+---
+
+<Layout title="Energia Riojana | Energia Solar">
+    <HeroSolar />
+    <main class="flex flex-col items-center justify-center text-gray-800">
+        <section class="flex flex-col w-5/6 md:w-3/4 py-8 md:py-24 gap-8">
+            <LlamaSolar />
+            <ParquesMunicipales />
+        </section>
+
+        <DividerUp />
+
+        <section
+            class="bg-primary-variant-1 w-full flex flex-col items-center justify-center text-white gap-8"
+        >
+            <ParquesSolares />
+            <ParquesPrivados />
+        </section>
+    </main>
+</Layout>

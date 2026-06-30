@@ -1,12 +1,35 @@
 ---
-import Construction from "../components/Construction.astro";
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import Benefits from "../sections/Benefits.astro";
+import Contacto from "../sections/Contacto.astro";
+import Data from "../sections/Data.astro";
+import OffGrid from "../sections/OffGrid.astro";
+import OnGrid from "../sections/OnGrid.astro";
+import Data2 from "../sections/Data2.astro";
+import Hero from "../sections/Hero.astro";
+import DividerUp from "@/sections/DividerUp.astro";
+import DividerDown from "@/sections/DividerDown.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Energia Riojana | Home";
 ---
 
-<Layout>
-	<Construction />
+<Layout title={title}>
+	<Hero />
+
+	<main
+		class="flex flex-col items-center justify-center text-gray-800 py-8 md:py-24"
+	>
+		<Benefits />
+		<DividerUp />
+		<Data />
+		<DividerDown />
+		<div class="flex flex-col gap-8 items-center justify-center my-8">
+			<OnGrid />
+			<OffGrid />
+		</div>
+		<DividerUp />
+		<Data2 />
+		<DividerDown />
+		<Contacto />
+	</main>
 </Layout>

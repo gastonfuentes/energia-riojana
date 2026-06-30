@@ -1,0 +1,22 @@
+---
+import { getImage } from "astro:assets";
+import imagen_hero from "../../assets/image_institucional.jpg";
+const heroImage = await getImage({ src: imagen_hero });
+
+/* console.log(heroImage); */
+---
+
+<section
+    class="flex flex-col justify-center items-center h-screen bg-cover text-white"
+    style=`background-image: url(${heroImage.src});`
+>
+    <article class="w-3/4">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Institucional</h1>
+        <p class="md:text-xl">
+            En Energía Riojana S.A. trabajamos por una provincia más sostenible,
+            inclusiva y eficiente, desarrollando soluciones energéticas que
+            fortalecen la infraestructura, impulsan la innovación y mejoran la
+            calidad de vida de los riojanos.
+        </p>
+    </article>
+</section>

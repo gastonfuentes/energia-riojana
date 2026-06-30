@@ -1,0 +1,11 @@
+---
+import { getImage } from "astro:assets";
+import imagen_hero from "../assets/divisor_abajo.svg";
+const heroImage = await getImage({ src: imagen_hero });
+---
+
+<section
+    class="w-full h-88 bg-cover"
+    style=`background-image: url(${heroImage.src});`
+>
+</section>

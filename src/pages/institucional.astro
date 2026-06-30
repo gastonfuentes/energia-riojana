@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuienesSomos from "../sections/institucional/QuienesSomos.astro";
+import Mision from "../sections/institucional/Mision.astro";
+import Valores from "../sections/institucional/Valores.astro";
+import QueHacemos from "../sections/institucional/QueHacemos.astro";
+import Impacto from "../sections/institucional/Impacto.astro";
+import Compromiso from "../sections/institucional/Compromiso.astro";
+import Vision from "../sections/institucional/Vision.astro";
+import HeroInstitucional from "../sections/institucional/HeroInstitucional.astro";
+import DividerUp from "@/sections/DividerUp.astro";
+---
+
+<Layout title="Energia Riojana | Institucional">
+    <HeroInstitucional />
+    <main class="flex flex-col items-center justify-center text-gray-800">
+        <section class="flex flex-col w-5/6 md:w-3/4 py-8 md:py-24 gap-8">
+            <QuienesSomos />
+            <Mision />
+            <Vision />
+            <Valores />
+        </section>
+
+        <DividerUp />
+        <section
+            class="bg-primary-variant-1 w-full flex flex-col items-center justify-center text-white gap-8"
+        >
+            <QueHacemos />
+            <Impacto />
+            <Compromiso />
+        </section>
+    </main>
+</Layout>

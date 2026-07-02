@@ -1,0 +1,37 @@
+---
+// TEMPORARY internal preview to eyeball the icon system. Remove before release.
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const files = import.meta.glob('../assets/icons/*.svg');
+const names = Object.keys(files)
+  .map((p) => p.split('/').pop()!.replace(/\.svg$/, ''))
+  .sort();
+---
+
+<Layout title="Icon preview">
+  <section class="mx-auto max-w-6xl p-10">
+    <h1 class="mb-2 text-3xl font-bold">Íconos — {names.length}</h1>
+    <p class="mb-8 text-gray-500">
+      Sistema con <code>currentColor</code>: el mismo SVG toma el color de la clase.
+    </p>
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6">
+      {
+        names.map((name) => (
+          <div class="flex flex-col items-center gap-3 rounded-lg border border-gray-200 p-4">
+            <Icon name={name} size="2.5rem" class="text-brand" />
+            <span class="break-all text-center text-[11px] text-gray-500">{name}</span>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2 class="mb-4 mt-12 text-xl font-semibold">
+      Prueba de currentColor — blanco sobre el gradiente de marca
+    </h2>
+    <div class="flex flex-wrap gap-6 rounded-xl bg-brand-gradient p-8">
+      {names.slice(0, 10).map((name) => <Icon name={name} size="2.5rem" class="text-white" />)}
+    </div>
+  </section>
+</Layout>

@@ -26,12 +26,11 @@ const { title } = Astro.props;
 		<ClientRouter />
 	</head>
 	<body class="bg-gray-300">
-		<!-- <NavBar /> -->
-		<NavBarShadcn client:load />
+		<header class="absolute inset-x-0 top-0 z-50">
+			<NavBarShadcn client:load />
+		</header>
 
-		<div class="w-full mx-auto">
-			<slot />
-		</div>
+		<slot />
 
 		<Footer />
 	</body>

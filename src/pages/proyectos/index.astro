@@ -1,15 +1,47 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import ProjectFeature from "@/sections/ProjectFeature.astro";
+import { projects } from "@/data/projects";
+import imageHero from "@/assets/image_obra.jpg";
+
+const title = "Energía Riojana | Proyectos";
 ---
 
-<Layout title="Energía Riojana | Proyectos">
-  <main
-    class="flex min-h-[60vh] flex-col items-center justify-center bg-brand-gradient px-6 py-24 text-center text-white"
-  >
-    <p class="text-eyebrow mb-4">Energía Riojana</p>
-    <h1 class="max-w-4xl">Proyectos</h1>
-    <p class="text-lead mt-6 max-w-2xl text-white/90">
-      Obras e infraestructura eléctrica que fortalecen la provincia.
-    </p>
+<Layout title={title}>
+  <PageHero
+    image={imageHero}
+    eyebrow="Proyectos"
+    title="Programas y trabajos destacados"
+    lead="Capacidad, compromiso, calidad y garantía en cada obra que llevamos adelante."
+  />
+
+  <main class="flex flex-col items-center justify-center text-gray-800">
+    <div
+      class="flex w-full flex-col items-center gap-10 py-16 md:gap-16 md:py-24"
+    >
+      <SectionHeader
+        eyebrow="Nuestro trabajo"
+        title="Del hogar rural al parque industrial"
+        lead="Cada proyecto acerca la transición energética a un rincón distinto de La Rioja."
+      />
+      {
+        projects.map((project, i) => (
+          <ProjectFeature project={project} flip={i % 2 === 1} />
+        ))
+      }
+
+      <a
+        href="/contacto"
+        class="group mt-4 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-orange"
+      >
+        Sumá tu proyecto
+        <span
+          class="grid h-7 w-7 place-items-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1"
+          >&rarr;</span
+        >
+      </a>
+    </div>
   </main>
 </Layout>

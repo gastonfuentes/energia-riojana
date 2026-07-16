@@ -19,13 +19,6 @@
     --color-error: #b91c1c;
     --color-warning: #d97706;
 
-    /* Backward-compat aliases: existing sections still reference these
-       class names. They now resolve to the new brand palette, so the
-       whole site adopts the new colors without editing each file. */
-    --color-primary-variant-1: var(--color-brand);
-    --color-primary-variant-2: var(--color-brand-orange);
-    --color-sistemas-aislados: var(--color-brand-orange);
-    --color-generacion-distribuida: var(--color-brand);
 }
 
 /* Brand gradient for hero / banner backgrounds */

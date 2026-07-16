@@ -150,6 +150,14 @@
   * {
     @apply border-border outline-ring/50;
     }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
   body {
     @apply bg-background text-foreground;
     }
@@ -216,4 +224,48 @@
 @utility text-caption {
   font-size: 0.8125rem;
   line-height: 1.4;
+}
+
+/* The impact figure. Bigger than text-display on purpose: the number is the
+   message, the sentence next to it is the footnote.
+   tabular-nums keeps every digit the same width, so a counter running 0 -> 160
+   doesn't make the layout jitter as it gains digits. */
+@utility text-stat {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Reveal-on-scroll ----
+   The hidden state is scoped to `.js`, a class only src/scripts/motion.ts can
+   set. Without JS nothing is ever hidden: the page renders in full, just without
+   the animation. A bare `opacity: 0` here would blank the page whenever the
+   bundle fails to load. */
+@layer base {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  [data-reveal] {
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+    [data-reveal] {
+      transition: none;
+    }
+  }
 }

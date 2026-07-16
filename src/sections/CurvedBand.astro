@@ -1,0 +1,49 @@
+---
+// Full-bleed band whose left edge is cut by a PERFECT CIRCLE — never an ellipse,
+// at any viewport size.
+//
+// LAYERING (this is what makes the circle possible):
+//   1. The section's base colour is RED.
+//   2. An orange strip, bounded, on the left.
+//   3. The red circle on top of it. Its left arc is the curve.
+// Everything to the right of the strip is already red, so the circle NEVER has
+// to span the viewport. That is the whole trick: an orange base would force the
+// circle to be wide enough to cover the widest screen, and a circle wide enough
+// for a 2560px monitor cuts an almost flat arc across a ~600px band (measured:
+// 25px of sweep instead of 68px). Decoupling the fill from the shape buys back
+// the curve. The strip is capped in px so the circle always covers it, however
+// wide the screen gets.
+//
+// SIZING — aspect-square + rounded-full, driven by the band's HEIGHT:
+//   sweep / band height = (r/2) x (1 - sqrt(1 - 1/r^2))
+// which depends ONLY on the ratio r, not on the viewport. So the arc keeps the
+// same proportion to the band at every screen size — measured 13.4% of the band
+// height at r=2 and 5% at r=5, identically at 500px and at 2560px wide.
+// Sizing the circle in vw instead would make it flatten on wide screens and
+// bulge on narrow ones.
+//
+// Mobile uses a bigger circle (flatter arc) on purpose: at r=2 the arc would eat
+// ~80px, and a 375px screen cannot pay for both that and a readable text column.
+// It is still a perfect circle — only its radius differs.
+//
+// Content padding must clear the arc's WIDEST intrusion (its position at the
+// band's top and bottom edges), never its midpoint.
+---
+
+<section class="relative w-full overflow-hidden bg-brand text-white">
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 w-[40%] max-w-[520px] bg-brand-orange"
+  >
+  </div>
+
+  <div
+    class="pointer-events-none absolute top-1/2 left-4 aspect-square h-[500%] -translate-y-1/2 rounded-full bg-brand md:left-[5%] md:h-[200%]"
+  >
+  </div>
+
+  <div
+    class="relative z-10 flex flex-col gap-28 py-24 pr-5 pl-16 md:gap-44 md:py-36 md:pr-[6%] md:pl-[22%]"
+  >
+    <slot />
+  </div>
+</section>

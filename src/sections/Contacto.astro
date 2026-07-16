@@ -2,28 +2,21 @@
 import { Image } from "astro:assets";
 import image_card from "../assets/card-energia-riojana.png";
 import Contact from "../components/Contact.astro";
+
+// The section heading lives OUTSIDE this card (SectionHeader on the home,
+// HeroContacto on /contacto) — the card is just the form surface.
 ---
 
 <section
-    class="p-4 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-2 md:gap-4 w-5/6 md:w-3/4"
+    class="flex w-5/6 flex-col gap-2 rounded-2xl bg-white p-4 shadow-sm md:w-3/4 md:gap-4 md:p-8"
 >
     <article class="flex flex-col">
         <div
             class="flex flex-col md:flex-row gap-4 md:gap-12 items-center justify-center"
         >
             <div class="flex flex-col justify-center">
-                <header class="flex flex-col p-8 bg-gray-200 rounded-xl">
-                    <div>
-                        <h1 class="text-4xl font-bold rounded-xl">Contacto</h1>
-                    </div>
-                    <!-- <div>
-                    <span class="text-3xl">
-                        Beneficios que iluminan tu futuro
-                    </span>
-                </div> -->
-                </header>
-                <p class="p-4">
-                    dejanos tu mensaje y nos pondremos en contacto a la
+                <p class="p-4 text-lead">
+                    Dejanos tu mensaje y nos pondremos en contacto a la
                     brevedad.
                 </p>
                 <Contact />

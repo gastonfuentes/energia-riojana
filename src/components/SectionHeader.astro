@@ -1,0 +1,39 @@
+---
+/**
+ * <SectionHeader /> — eyebrow + title (+ optional lead) that introduces a
+ * section. One shared pattern across the site so sections announce themselves
+ * in the same voice.
+ *
+ * Colours are inherited: on a light canvas it reads dark, inside a dark band
+ * add `class="text-white"` and the eyebrow keeps the brand accent via
+ * `eyebrowClass`.
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  /** Overrides the eyebrow colour. Defaults to the brand red. */
+  eyebrowClass?: string;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  lead,
+  eyebrowClass = "text-brand",
+  class: className,
+} = Astro.props;
+---
+
+<header
+  data-reveal
+  class:list={[
+    "mx-auto flex w-11/12 max-w-3xl flex-col items-center gap-3 text-center text-balance",
+    className,
+  ]}
+>
+  <p class:list={["text-eyebrow", eyebrowClass]}>{eyebrow}</p>
+  <h2>{title}</h2>
+  {lead && <p class="text-lead opacity-85">{lead}</p>}
+</header>

@@ -1,0 +1,114 @@
+---
+import { getImage } from "astro:assets";
+import cardHogarImg from "../assets/images/home-card-hogar.jpg";
+import cardPymesImg from "../assets/images/home-card-pymes.jpg";
+import cardIndustriaImg from "../assets/images/home-card-industria.jpg";
+import Icon from "../components/Icon.astro";
+
+const hogarImage = await getImage({ src: cardHogarImg, width: 900 });
+const pymesImage = await getImage({ src: cardPymesImg, width: 900 });
+const industriaImage = await getImage({ src: cardIndustriaImg, width: 900 });
+
+const phone = "5493804331153";
+const cards = [
+  {
+    title: "Hogar",
+    cta: "Pedí tu kit",
+    icon: "icon-home-fridge",
+    msg: "Hola, me comunico solicitando más información sobre el kit de energía solar para el hogar.",
+    image: hogarImage.src,
+    featured: true,
+  },
+  {
+    title: "Pymes",
+    cta: "Pedí tu presupuesto",
+    icon: "icon-commercial-pos",
+    msg: "Hola, me comunico solicitando más información sobre productos y planes para empresas.",
+    image: pymesImage.src,
+    featured: false,
+  },
+  {
+    title: "Industria y Agro",
+    cta: "Pedí tu presupuesto",
+    icon: "icon-industrial-factory",
+    msg: "Hola, me comunico solicitando más información sobre productos y planes para industrias y agro.",
+    image: industriaImage.src,
+    featured: false,
+  },
+];
+
+const waLink = (msg: string) =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+// Opacity logic: the "active" card shows its image, the rest show red + icon.
+// Default active = featured; hovering any card makes THAT one active.
+const imageClasses = (featured: boolean) =>
+  featured
+    ? "opacity-100 group-hover/cards:opacity-0 group-hover/card:opacity-100!"
+    : "opacity-0 group-hover/card:opacity-100";
+const iconClasses = (featured: boolean) =>
+  featured
+    ? "opacity-0 group-hover/cards:opacity-100 group-hover/card:opacity-0!"
+    : "opacity-100 group-hover/card:opacity-0";
+
+// No data-reveal here on purpose. These cards straddle the hero's bottom edge,
+// which ties them to the viewport bottom (the hero is always 100vh) — the
+// hidden state's translateY pushes them just outside the observer's margin, so
+// they would never reveal on load and the page's primary CTAs would sit
+// invisible until the first scroll. At-the-fold content is not scroll-revealed.
+---
+
+{/* The negative margin pulls the cards up over the hero photo's bottom edge, so
+    they straddle the page's hardest seam (dark photo -> light canvas). It lives
+    on the SECTION, never on the data-reveal wrappers — those animate transform
+    and must not be given layout duties. */}
+<section class="relative z-10 -mt-24 w-full pb-14 md:-mt-28 md:pb-20">
+  <div
+    class="group/cards mx-auto grid w-11/12 max-w-6xl gap-4 md:grid-cols-3"
+  >
+    {
+      cards.map((card) => (
+        <div>
+          <article class="group/card relative flex h-full min-h-56 flex-col justify-between overflow-hidden rounded-2xl bg-brand p-6 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
+            <div
+              class:list={[
+                "absolute inset-0 transition-opacity duration-300",
+                imageClasses(card.featured),
+              ]}
+            >
+              <img
+                src={card.image}
+                alt=""
+                class="h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+            </div>
+
+            <div
+              class:list={[
+                "relative z-10 transition-opacity duration-300",
+                iconClasses(card.featured),
+              ]}
+            >
+              <Icon name={card.icon} size="2.75rem" class="text-white" />
+            </div>
+
+            <div class="relative z-10 flex flex-col items-start gap-3">
+              <h3 class="text-xl font-bold tracking-wide text-white uppercase">
+                {card.title}
+              </h3>
+              <a
+                href={waLink(card.msg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand transition-transform hover:scale-105"
+              >
+                {card.cta}
+              </a>
+            </div>
+          </article>
+        </div>
+      ))
+    }
+  </div>
+</section>

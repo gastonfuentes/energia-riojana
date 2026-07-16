@@ -1,15 +1,146 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SystemFeature from "@/sections/SystemFeature.astro";
+import CurvedBand from "@/sections/CurvedBand.astro";
+import imageHero from "@/assets/image_solar.jpg";
+import imageHogar from "@/assets/images/home-card-hogar.jpg";
+import imagePymes from "@/assets/images/home-card-pymes.jpg";
+import imageIndustria from "@/assets/images/home-card-industria.jpg";
+import imageAdaptado from "@/assets/images/project-aislados.jpg";
+
+const title = "Energía Riojana | Productos";
+
+const phone = "5493804331153";
+const waLink = (msg: string) =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+// Copy synthesized from the Llama Solar / Parques programs of the previous
+// site, per the 2026 brief ("misma info de la web").
+const segmentos = [
+  {
+    title: "Hogar",
+    description:
+      "Kits solares fotovoltaicos residenciales de 1,5 kW a 2,5 kW, adaptados a las necesidades de cada familia. Cubren un porcentaje significativo del consumo mensual, reducen la factura eléctrica y suman autonomía energética desde el primer día.",
+    image: imageHogar,
+    imageAlt: "Instalación solar residencial sobre el techo de una casa",
+    cta: {
+      label: "Pedí tu kit",
+      href: waLink(
+        "Hola, me comunico solicitando más información sobre el kit de energía solar para el hogar.",
+      ),
+    },
+  },
+  {
+    title: "Comercial",
+    description:
+      "Sistemas on-grid para pymes y comercios: generá tu propia energía, bajá los costos operativos y vendé el excedente a la red. Instalación rápida y segura con tecnología de última generación.",
+    image: imagePymes,
+    imageAlt: "Comercio con sistema de energía solar instalado",
+    cta: {
+      label: "Pedí tu presupuesto",
+      href: waLink(
+        "Hola, me comunico solicitando más información sobre productos y planes para empresas.",
+      ),
+    },
+  },
+  {
+    title: "Industrial",
+    description:
+      "Parques solares privados para industrias y agro, diseñados con tecnología de vanguardia que garantiza eficiencia, rendimiento y retorno de inversión. Incluye asesoramiento técnico y financiero para acceder a las mejores líneas de financiamiento.",
+    image: imageIndustria,
+    imageAlt: "Parque solar de escala industrial",
+    cta: {
+      label: "Pedí tu presupuesto",
+      href: waLink(
+        "Hola, me comunico solicitando más información sobre productos y planes para industrias y agro.",
+      ),
+    },
+  },
+  {
+    title: "Adaptado",
+    description:
+      "Sistemas off-grid a medida para lugares remotos o sin conexión a la red: paneles de alta eficiencia, inversor inteligente de 3 kW y baterías de litio de larga duración, con una vida útil estimada de 20 años.",
+    image: imageAdaptado,
+    imageAlt: "Sistema solar autónomo instalado en una zona aislada",
+    cta: {
+      label: "Consultanos",
+      href: waLink(
+        "Hola, me comunico solicitando más información sobre sistemas de energía solar adaptados a medida.",
+      ),
+    },
+  },
+];
 ---
 
-<Layout title="Energía Riojana | Productos">
-  <main
-    class="flex min-h-[60vh] flex-col items-center justify-center bg-brand-gradient px-6 py-24 text-center text-white"
-  >
-    <p class="text-eyebrow mb-4">Energía Riojana</p>
-    <h1 class="max-w-4xl">Productos</h1>
-    <p class="text-lead mt-6 max-w-2xl text-white/90">
-      Soluciones solares para hogares, comercios e industrias de La Rioja.
-    </p>
+<Layout title={title}>
+  <PageHero
+    image={imageHero}
+    eyebrow="Productos"
+    title="Equipos, instalación y garantía"
+    lead="Soluciones de energía solar y eléctrica para cada escala: desde tu casa hasta la industria."
+  />
+
+  <main class="flex flex-col items-center justify-center text-gray-800">
+    <div
+      class="flex w-full flex-col items-center gap-10 py-16 md:gap-16 md:py-24"
+    >
+      <SectionHeader
+        eyebrow="Energía solar"
+        title="Un sistema para cada necesidad"
+        lead="Cuatro líneas de producto, una misma garantía: el sol riojano trabajando para vos."
+      />
+      {segmentos.map((s) => <SystemFeature {...s} />)}
+    </div>
+
+    <div
+      class="flex w-full flex-col items-center gap-10 pb-16 md:gap-14 md:pb-24"
+    >
+      <SectionHeader
+        eyebrow="Energía eléctrica"
+        title="Infraestructura que sostiene a la provincia"
+      />
+      <article
+        data-reveal
+        class="flex w-5/6 flex-col items-start gap-4 rounded-2xl bg-white p-6 shadow-sm md:w-3/4 md:p-10"
+      >
+        <p class="text-lead">
+          Construimos y ampliamos la infraestructura eléctrica de La Rioja:
+          estaciones transformadoras, líneas de alta tensión de 132 kV, redes de
+          distribución de 33 kV y 13,2 kV, y modernización del alumbrado
+          público con luminarias LED.
+        </p>
+        <a
+          href="/proyectos"
+          class="group mt-1 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-orange"
+        >
+          Ver proyectos
+          <span
+            class="grid h-7 w-7 place-items-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1"
+            >&rarr;</span
+          >
+        </a>
+      </article>
+    </div>
+
+    <CurvedBand>
+      <div class="flex flex-col items-start gap-6">
+        <h2>¿No sabés cuál te conviene?</h2>
+        <p class="text-lead text-white/90">
+          Contanos tu caso y te asesoramos sin compromiso.
+        </p>
+        <a
+          href={waLink(
+            "Hola, quiero asesoramiento para elegir un sistema de energía solar.",
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-brand transition-transform hover:scale-105"
+        >
+          Escribinos por WhatsApp
+        </a>
+      </div>
+    </CurvedBand>
   </main>
 </Layout>

@@ -1,19 +1,106 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 import Contacto from "@/sections/Contacto.astro";
-import HeroContacto from "@/sections/contacto/HeroContacto.astro";
 import MapsContact from "@/sections/contacto/MapsContact.astro";
+import imageHero from "@/assets/image_contacto.jpg";
+import {
+    MdAlternateEmail,
+    MdLocationOn,
+    MdOutlinePhotoCamera,
+    MdWhatsapp,
+} from "react-icons/md";
+
+const title = "Energia Riojana | Contacto";
+
+// Contact details verbatim from the client brief "Website ERSA - 2026".
+const infoCards = [
+    {
+        icon: MdLocationOn,
+        title: "Oficinas",
+        lines: [
+            {
+                label: "Buenos Aires 264, La Rioja, Prov. de La Rioja",
+                href: "https://maps.app.goo.gl/GuEY43sCcK93r7268",
+            },
+        ],
+    },
+    {
+        icon: MdWhatsapp,
+        title: "Ignacio Martínez — Director de operaciones",
+        lines: [
+            { label: "+54 9 3804 33-1153", href: "https://wa.me/5493804331153" },
+            {
+                label: "imartinez@energia-riojana.com.ar",
+                href: "mailto:imartinez@energia-riojana.com.ar",
+            },
+        ],
+    },
+    {
+        icon: MdOutlinePhotoCamera,
+        title: "Seguinos",
+        lines: [
+            {
+                label: "@ersa.lr en Instagram",
+                href: "https://www.instagram.com/ersa.lr/",
+            },
+        ],
+    },
+];
 ---
 
-<Layout title="Energia Riojana | Contacto">
-    <HeroContacto />
+<Layout title={title}>
+    <PageHero
+        image={imageHero}
+        eyebrow="Contacto"
+        title="En La Rioja conocemos el sol"
+        lead="Es parte de nuestra historia y nuestra identidad. Hoy lo aprovechamos para convertir a la provincia en un faro de sustentabilidad."
+    />
+
     <main class="flex flex-col items-center justify-center text-gray-800">
-        <section
-            class="flex flex-col py-8 md:py-24 gap-8 items-center justify-center"
+        <div
+            class="flex w-full flex-col items-center gap-10 py-16 md:gap-14 md:py-24"
         >
+            <SectionHeader
+                eyebrow="Escribinos"
+                title="Iniciá hoy tu transformación energética"
+                lead="Dejanos tu consulta y te respondemos a la brevedad."
+            />
             <Contacto />
 
+            <div class="grid w-5/6 gap-5 md:w-3/4 md:grid-cols-3">
+                {
+                    infoCards.map((card, i) => (
+                        <article
+                            data-reveal
+                            style={`--reveal-delay:${i * 100}ms`}
+                            class="flex flex-col items-start gap-3 rounded-2xl bg-white p-6 shadow-sm"
+                        >
+                            <span class="grid h-12 w-12 place-items-center rounded-full bg-brand/10 text-2xl text-brand">
+                                <card.icon />
+                            </span>
+                            <h3 class="text-base font-bold">{card.title}</h3>
+                            <ul class="flex flex-col gap-1">
+                                {card.lines.map((line) => (
+                                    <li>
+                                        <a
+                                            href={line.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-600 transition-colors hover:text-brand hover:underline"
+                                        >
+                                            {line.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </div>
+
             <MapsContact />
-        </section>
+        </div>
     </main>
 </Layout>

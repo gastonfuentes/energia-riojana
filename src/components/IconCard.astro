@@ -1,0 +1,29 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * <IconCard /> — small white card with a brand icon, a title and a short text.
+ * The building block for value grids, service grids and contact-info grids.
+ */
+interface Props {
+  icon: string;
+  title: string;
+  text: string;
+  /** Passed through to the reveal stagger. */
+  revealDelay?: number;
+}
+
+const { icon, title, text, revealDelay = 0 } = Astro.props;
+---
+
+<article
+  data-reveal
+  style={`--reveal-delay:${revealDelay}ms`}
+  class="flex flex-col items-start gap-4 rounded-2xl bg-white p-6 shadow-sm"
+>
+  <span class="grid h-14 w-14 place-items-center rounded-full bg-brand/10">
+    <Icon name={icon} size="1.75rem" class="text-brand" />
+  </span>
+  <h3>{title}</h3>
+  <p class="text-gray-600">{text}</p>
+</article>

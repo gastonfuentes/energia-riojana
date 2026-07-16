@@ -1,33 +1,170 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import QuienesSomos from "../sections/institucional/QuienesSomos.astro";
-import Mision from "../sections/institucional/Mision.astro";
-import Valores from "../sections/institucional/Valores.astro";
-import QueHacemos from "../sections/institucional/QueHacemos.astro";
-import Impacto from "../sections/institucional/Impacto.astro";
-import Compromiso from "../sections/institucional/Compromiso.astro";
-import Vision from "../sections/institucional/Vision.astro";
-import HeroInstitucional from "../sections/institucional/HeroInstitucional.astro";
-import DividerUp from "@/sections/DividerUp.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import IconCard from "../components/IconCard.astro";
+import SystemFeature from "../sections/SystemFeature.astro";
+import CurvedBand from "../sections/CurvedBand.astro";
+import StatsRow from "../sections/StatsRow.astro";
+import MediaBand from "../sections/MediaBand.astro";
+import { allStats } from "../data/stats";
+import imageHero from "../assets/image_institucional.jpg";
+import imageMision from "../assets/images/about-mision.jpg";
+import imageCompromiso from "../assets/images/hero-home.jpg";
+
+const title = "Energia Riojana | Institucional";
+
+// Copy from the client brief "Website ERSA - 2026" and the previous site.
+const valores = [
+  {
+    icon: "icon-commitment-sustainability",
+    title: "Sustentabilidad",
+    text: "Nos comprometemos con el cuidado del medio ambiente, desarrollando proyectos que contribuyan a un futuro más limpio.",
+  },
+  {
+    icon: "icon-custom-solution",
+    title: "Innovación",
+    text: "Buscamos implementar soluciones tecnológicas de vanguardia en todos nuestros proyectos.",
+  },
+  {
+    icon: "icon-stat-people",
+    title: "Compromiso Social",
+    text: "Apostamos al desarrollo de las comunidades locales, generando empleo y oportunidades para todos.",
+  },
+  {
+    icon: "icon-energy-cycle",
+    title: "Transparencia",
+    text: "Actuamos con ética y claridad en nuestras operaciones y relaciones con clientes, proveedores y colaboradores.",
+  },
+  {
+    icon: "icon-product-investment",
+    title: "Excelencia",
+    text: "Nos esforzamos por alcanzar los más altos estándares de calidad en cada uno de nuestros proyectos.",
+  },
+];
+
+const queHacemos = [
+  {
+    icon: "icon-custom-solar-panel",
+    title: "Parques solares",
+    text: "Construcción y operación de parques solares fotovoltaicos.",
+  },
+  {
+    icon: "icon-home-energy",
+    title: "Generación distribuida",
+    text: "Implementación de sistemas de generación distribuida para hogares y empresas.",
+  },
+  {
+    icon: "icon-industrial-transformer",
+    title: "Infraestructura eléctrica",
+    text: "Diseño y desarrollo de estaciones transformadoras y líneas de transmisión.",
+  },
+  {
+    icon: "icon-stat-helmet",
+    title: "Proyectos comunitarios",
+    text: "Promoción de proyectos comunitarios y municipales para el ahorro energético y la sustentabilidad.",
+  },
+];
+
+const STAGGER_MS = 100;
 ---
 
-<Layout title="Energia Riojana | Institucional">
-    <HeroInstitucional />
-    <main class="flex flex-col items-center justify-center text-gray-800">
-        <section class="flex flex-col w-5/6 md:w-3/4 py-8 md:py-24 gap-8">
-            <QuienesSomos />
-            <Mision />
-            <Vision />
-            <Valores />
-        </section>
+<Layout title={title}>
+  <PageHero
+    image={imageHero}
+    eyebrow="Institucional"
+    title="Transformamos el recurso que conocemos bien, el sol."
+    lead="Lideramos la transición energética de La Rioja con capacidad, actitud, compromiso y calidad."
+  />
 
-        <DividerUp />
-        <section
-            class="bg-primary-variant-1 w-full flex flex-col items-center justify-center text-white gap-8"
-        >
-            <QueHacemos />
-            <Impacto />
-            <Compromiso />
-        </section>
-    </main>
+  <main class="flex flex-col items-center justify-center text-gray-800">
+    <div
+      class="flex w-full flex-col items-center gap-10 py-16 md:gap-14 md:py-24"
+    >
+      <SectionHeader
+        eyebrow="Quiénes somos"
+        title="Una empresa riojana para la transición energética"
+      />
+      <SystemFeature
+        title="Energía Riojana S.A."
+        description="Somos una empresa dedicada a liderar la transición energética en la región, especializada en el desarrollo de infraestructura de vanguardia para aprovechar nuestro recurso más abundante. Trabajamos con transparencia y excelencia para garantizar que el acceso a la energía limpia sea una realidad equitativa, potenciando tanto el sector residencial como el industrial con tecnología de nivel internacional."
+        image={imageMision}
+        imageAlt="Equipo de Energía Riojana trabajando en un parque solar"
+      />
+
+      <article
+        data-reveal
+        class="grid w-5/6 gap-8 rounded-2xl bg-white p-6 shadow-sm md:w-3/4 md:grid-cols-2 md:p-10"
+      >
+        <div class="flex flex-col gap-3">
+          <h3>Nuestra misión</h3>
+          <p class="text-gray-600">
+            Desarrollar, construir y operar proyectos de generación de energía
+            sustentable que contribuyan a la independencia energética y a la
+            reducción del impacto ambiental de nuestra provincia y del país.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3>Nuestra visión</h3>
+          <p class="text-gray-600">
+            Ser líderes en la transición hacia un modelo energético sustentable
+            en la provincia de La Rioja, consolidando a Energía Riojana SA como
+            un referente nacional en energías renovables.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div
+      class="flex w-full flex-col items-center gap-10 pb-16 md:gap-14 md:pb-24"
+    >
+      <SectionHeader
+        eyebrow="Nuestros valores"
+        title="Lo que guía cada proyecto"
+      />
+      <div class="grid w-5/6 gap-5 sm:grid-cols-2 md:w-3/4 lg:grid-cols-3">
+        {
+          valores.map((v, i) => (
+            <IconCard
+              icon={v.icon}
+              title={v.title}
+              text={v.text}
+              revealDelay={i * STAGGER_MS}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="flex w-full flex-col items-center gap-10 pb-16 md:gap-14 md:pb-24"
+    >
+      <SectionHeader
+        eyebrow="¿Qué hacemos?"
+        title="Proyectos integrales en el sector energético"
+      />
+      <div class="grid w-5/6 gap-5 sm:grid-cols-2 md:w-3/4">
+        {
+          queHacemos.map((q, i) => (
+            <IconCard
+              icon={q.icon}
+              title={q.title}
+              text={q.text}
+              revealDelay={i * STAGGER_MS}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <CurvedBand>
+      <StatsRow stats={allStats} />
+    </CurvedBand>
+
+    <MediaBand
+      image={imageCompromiso}
+      eyebrow="Compromiso con La Rioja"
+      title="Generamos empleo, fortalecemos la economía local y consolidamos a la provincia como ejemplo de sustentabilidad."
+    />
+  </main>
 </Layout>

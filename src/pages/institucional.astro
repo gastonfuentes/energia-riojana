@@ -6,11 +6,9 @@ import IconCard from "../components/IconCard.astro";
 import SystemFeature from "../sections/SystemFeature.astro";
 import CurvedBand from "../sections/CurvedBand.astro";
 import StatsRow from "../sections/StatsRow.astro";
-import MediaBand from "../sections/MediaBand.astro";
 import { allStats } from "../data/stats";
 import imageHero from "../assets/image_institucional.jpg";
 import imageMision from "../assets/images/about-mision.jpg";
-import imageCompromiso from "../assets/images/hero-home.jpg";
 
 const title = "Energia Riojana | Institucional";
 
@@ -91,28 +89,6 @@ const STAGGER_MS = 100;
         image={imageMision}
         imageAlt="Equipo de Energía Riojana trabajando en un parque solar"
       />
-
-      <article
-        data-reveal
-        class="grid w-5/6 gap-8 rounded-2xl bg-white p-6 shadow-sm md:w-3/4 md:grid-cols-2 md:p-10"
-      >
-        <div class="flex flex-col gap-3">
-          <h3>Nuestra misión</h3>
-          <p class="text-gray-600">
-            Desarrollar, construir y operar proyectos de generación de energía
-            sustentable que contribuyan a la independencia energética y a la
-            reducción del impacto ambiental de nuestra provincia y del país.
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h3>Nuestra visión</h3>
-          <p class="text-gray-600">
-            Ser líderes en la transición hacia un modelo energético sustentable
-            en la provincia de La Rioja, consolidando a Energía Riojana SA como
-            un referente nacional en energías renovables.
-          </p>
-        </div>
-      </article>
     </div>
 
     <div
@@ -161,10 +137,19 @@ const STAGGER_MS = 100;
       <StatsRow stats={allStats} />
     </CurvedBand>
 
-    <MediaBand
-      image={imageCompromiso}
-      eyebrow="Compromiso con La Rioja"
-      title="Generamos empleo, fortalecemos la economía local y consolidamos a la provincia como ejemplo de sustentabilidad."
-    />
+    {/* Closing claim — same <SectionHeader /> as the home's mission statement,
+        on the shared canvas, so the page ends in the site's voice instead of a
+        one-off photo band. */}
+    <section class="flex w-full justify-center py-16 md:py-24">
+      <SectionHeader
+        eyebrow="Compromiso con La Rioja"
+        title="Generamos empleo y fortalecemos la economía local,"
+        lead="consolidando a la provincia como ejemplo de sustentabilidad."
+      >
+        Generamos empleo y <span class="text-brand-orange"
+          >fortalecemos la economía local</span
+        >,
+      </SectionHeader>
+    </section>
   </main>
 </Layout>

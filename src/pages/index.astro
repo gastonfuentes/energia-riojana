@@ -3,14 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Contacto from "../sections/Contacto.astro";
 import CategoryCards from "../sections/CategoryCards.astro";
 import CurvedBand from "../sections/CurvedBand.astro";
-import MediaBand from "../sections/MediaBand.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import StatsRow from "../sections/StatsRow.astro";
 import SystemFeature from "../sections/SystemFeature.astro";
 import Hero from "../sections/Hero.astro";
 import imageOnGrid from "../assets/images/system-ongrid.jpg";
 import imageOffGrid from "../assets/images/system-offgrid.jpg";
-import imagePanels from "../assets/images/hero-home.jpg";
 import { provinceStats, communityStats } from "../data/stats";
 
 const title = "Energia Riojana | Home";
@@ -22,11 +20,19 @@ const title = "Energia Riojana | Home";
   <main class="flex flex-col items-center justify-center text-gray-800">
     <CategoryCards />
 
-    <MediaBand
-      image={imagePanels}
-      eyebrow="Energía del sol riojano"
-      title="Nuestros parques solares trabajan todos los días para la provincia."
-    />
+    {/* Mission statement — same <SectionHeader /> as every other section, so it
+        sits on the shared type scale instead of a one-off size. */}
+    <section class="flex w-full justify-center py-16 md:py-24">
+      <SectionHeader
+        eyebrow="Nuestra misión es clara:"
+        title="Brindar soluciones energéticas seguras, eficientes y de calidad,"
+        lead="protegiendo el entorno y asegurando el futuro de cada rincón de nuestra tierra."
+      >
+        Brindar soluciones energéticas <span class="text-brand-orange"
+          >seguras, eficientes y de calidad</span
+        >,
+      </SectionHeader>
+    </section>
 
     <CurvedBand>
       <StatsRow stats={provinceStats} />

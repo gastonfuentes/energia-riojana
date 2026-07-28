@@ -34,6 +34,9 @@ const {
   ]}
 >
   <p class:list={["text-eyebrow", eyebrowClass]}>{eyebrow}</p>
-  <h2>{title}</h2>
+  {/* Children override the plain `title` when the heading needs inline markup
+      (an accented span, a <br>). `title` stays required so it can still serve
+      as the plain-text source for the slot fallback. */}
+  <h2><slot>{title}</slot></h2>
   {lead && <p class="text-lead opacity-85">{lead}</p>}
 </header>

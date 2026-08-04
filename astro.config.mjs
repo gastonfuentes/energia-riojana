@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Required for canonical URLs, absolute Open Graph image paths and the
   // sitemap. Without it Astro cannot know its own origin at build time.
-  site: 'https://www.energia-riojana.com.ar',
+  site: 'https://energia-riojana.com.ar',
 
   vite: {
     plugins: [tailwindcss()],

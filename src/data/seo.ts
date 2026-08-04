@@ -13,7 +13,7 @@
 import { address, email, instagram, phone, whatsapp } from "./contact";
 
 /** Canonical origin. No trailing slash — every URL is built by joining onto it. */
-export const siteUrl = "https://www.energia-riojana.com.ar";
+export const siteUrl = "https://energia-riojana.com.ar";
 
 export const siteName = "Energía Riojana S.A.";
 

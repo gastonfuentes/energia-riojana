@@ -7,4 +7,4 @@ Disallow: /icon-preview
 Disallow: /type-preview
 Disallow: /success
 
-Sitemap: https://www.energia-riojana.com.ar/sitemap-index.xml
+Sitemap: https://energia-riojana.com.ar/sitemap-index.xml

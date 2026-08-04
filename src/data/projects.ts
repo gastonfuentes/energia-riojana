@@ -70,7 +70,7 @@ export const projects: Project[] = [
     subtitle: "Municipios sustentables",
     description: [
       "Desarrollamos e instalamos parques solares de 50 kW para cada uno de los municipios de la provincia, en el marco de un plan estratégico para la reducción del gasto público en energía y la promoción de prácticas sustentables en la gestión local.",
-      "Estos parques representan entre un 15% y un 20% del consumo total de energía que los municipios mantienen ante la distribuidora eléctrica.",
+      "Estos parques representan entre un 15% y un 25% del consumo total de la energía consumida en alumbrado público.",
     ],
     bullets: [
       "Ahorro energético y económico.",

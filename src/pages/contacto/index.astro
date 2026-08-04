@@ -6,10 +6,9 @@ import Contacto from "@/sections/Contacto.astro";
 import MapsContact from "@/sections/contacto/MapsContact.astro";
 import imageHero from "@/assets/image_contacto.jpg";
 import {
-    MdAlternateEmail,
     MdLocationOn,
     MdOutlinePhotoCamera,
-    MdWhatsapp,
+    MdPhone,
 } from "react-icons/md";
 
 const title = "Energia Riojana | Contacto";
@@ -27,14 +26,10 @@ const infoCards = [
         ],
     },
     {
-        icon: MdWhatsapp,
-        title: "Ignacio Martínez — Director de operaciones",
+        icon: MdPhone,
+        title: "Director de operaciones",
         lines: [
-            { label: "+54 9 3804 33-1153", href: "https://wa.me/5493804331153" },
-            {
-                label: "imartinez@energia-riojana.com.ar",
-                href: "mailto:imartinez@energia-riojana.com.ar",
-            },
+            { label: "+54 380 448-1523", href: "tel:+543804481523" },
         ],
     },
     {
@@ -86,8 +81,16 @@ const infoCards = [
                                     <li>
                                         <a
                                             href={line.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target={
+                                                line.href.startsWith("http")
+                                                    ? "_blank"
+                                                    : undefined
+                                            }
+                                            rel={
+                                                line.href.startsWith("http")
+                                                    ? "noopener noreferrer"
+                                                    : undefined
+                                            }
                                             class="text-gray-600 transition-colors hover:text-brand hover:underline"
                                         >
                                             {line.label}

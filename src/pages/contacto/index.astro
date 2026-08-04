@@ -6,13 +6,14 @@ import Contacto from "@/sections/Contacto.astro";
 import MapsContact from "@/sections/contacto/MapsContact.astro";
 import imageHero from "@/assets/image_contacto.jpg";
 import { address, instagram, phone } from "@/data/contact";
+import { pageSeo } from "@/data/seo";
 import {
     MdLocationOn,
     MdOutlinePhotoCamera,
     MdPhone,
 } from "react-icons/md";
 
-const title = "Energia Riojana | Contacto";
+const { title, description } = pageSeo.contacto;
 
 const infoCards = [
     {
@@ -33,7 +34,7 @@ const infoCards = [
 ];
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
     <PageHero
         image={imageHero}
         eyebrow="Contacto"

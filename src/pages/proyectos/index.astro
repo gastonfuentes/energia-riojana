@@ -5,11 +5,12 @@ import SectionHeader from "@/components/SectionHeader.astro";
 import ProjectFeature from "@/sections/ProjectFeature.astro";
 import { projects } from "@/data/projects";
 import imageHero from "@/assets/image_obra.jpg";
+import { pageSeo } from "@/data/seo";
 
-const title = "Energía Riojana | Proyectos";
+const { title, description } = pageSeo.proyectos;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <PageHero
     image={imageHero}
     eyebrow="Proyectos"

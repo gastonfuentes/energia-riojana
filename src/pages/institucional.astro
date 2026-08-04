@@ -9,8 +9,9 @@ import StatsRow from "../sections/StatsRow.astro";
 import { allStats } from "../data/stats";
 import imageHero from "../assets/image_institucional.jpg";
 import imageMision from "../assets/images/about-mision.jpg";
+import { pageSeo } from "../data/seo";
 
-const title = "Energia Riojana | Institucional";
+const { title, description } = pageSeo.institucional;
 
 // Copy from the client brief "Website ERSA - 2026" and the previous site.
 const valores = [
@@ -67,7 +68,7 @@ const queHacemos = [
 const STAGGER_MS = 100;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <PageHero
     image={imageHero}
     eyebrow="Institucional"

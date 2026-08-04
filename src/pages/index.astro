@@ -10,11 +10,12 @@ import Hero from "../sections/Hero.astro";
 import imageOnGrid from "../assets/images/system-ongrid.jpg";
 import imageOffGrid from "../assets/images/system-offgrid.jpg";
 import { provinceStats, communityStats } from "../data/stats";
+import { pageSeo } from "../data/seo";
 
-const title = "Energia Riojana | Home";
+const { title, description } = pageSeo.home;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <Hero />
 
   <main class="flex flex-col items-center justify-center text-gray-800">

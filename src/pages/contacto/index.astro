@@ -5,6 +5,7 @@ import SectionHeader from "@/components/SectionHeader.astro";
 import Contacto from "@/sections/Contacto.astro";
 import MapsContact from "@/sections/contacto/MapsContact.astro";
 import imageHero from "@/assets/image_contacto.jpg";
+import { address, instagram, phone } from "@/data/contact";
 import {
     MdLocationOn,
     MdOutlinePhotoCamera,
@@ -13,34 +14,21 @@ import {
 
 const title = "Energia Riojana | Contacto";
 
-// Contact details verbatim from the client brief "Website ERSA - 2026".
 const infoCards = [
     {
         icon: MdLocationOn,
         title: "Oficinas",
-        lines: [
-            {
-                label: "Buenos Aires 264, La Rioja, Prov. de La Rioja",
-                href: "https://maps.app.goo.gl/GuEY43sCcK93r7268",
-            },
-        ],
+        lines: [{ label: address.full, href: address.href }],
     },
     {
         icon: MdPhone,
         title: "Director de operaciones",
-        lines: [
-            { label: "+54 380 448-1523", href: "tel:+543804481523" },
-        ],
+        lines: [{ label: phone.label, href: phone.href }],
     },
     {
         icon: MdOutlinePhotoCamera,
         title: "Seguinos",
-        lines: [
-            {
-                label: "@ersa.lr en Instagram",
-                href: "https://www.instagram.com/ersa.lr/",
-            },
-        ],
+        lines: [{ label: instagram.label, href: instagram.href }],
     },
 ];
 ---

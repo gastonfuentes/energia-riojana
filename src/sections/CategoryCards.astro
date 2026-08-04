@@ -4,12 +4,12 @@ import cardHogarImg from "../assets/images/home-card-hogar.jpg";
 import cardPymesImg from "../assets/images/home-card-pymes.jpg";
 import cardIndustriaImg from "../assets/images/home-card-industria.jpg";
 import Icon from "../components/Icon.astro";
+import { whatsapp } from "../data/contact";
 
 const hogarImage = await getImage({ src: cardHogarImg, width: 900 });
 const pymesImage = await getImage({ src: cardPymesImg, width: 900 });
 const industriaImage = await getImage({ src: cardIndustriaImg, width: 900 });
 
-const phone = "5493804331153";
 const cards = [
   {
     title: "Hogar",
@@ -37,8 +37,7 @@ const cards = [
   },
 ];
 
-const waLink = (msg: string) =>
-  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+const waLink = whatsapp.link;
 
 // Opacity logic: the "active" card shows its image, the rest show red + icon.
 // Default active = featured; hovering any card makes THAT one active.

@@ -4,6 +4,7 @@ import logo_horizontal from "../assets/logo-horizontal-blanco.svg";
 import { MdAlternateEmail, MdWhatsapp } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
 import ersa_qr from "../assets/ersa_qr.png";
+import { address, email, instagram, whatsapp } from "../data/contact";
 ---
 
 <footer
@@ -56,7 +57,7 @@ import ersa_qr from "../assets/ersa_qr.png";
                     <ul class="text-gray-400 dark:text-gray-400 text-sm">
                         <li class="mb-4">
                             <a
-                                href="mailto:imartinez@energia-riojana.com.ar"
+                                href={email.href}
                                 class="hover:underline flex items-center gap-1"
                                 target="_blank"
                             >
@@ -67,22 +68,22 @@ import ersa_qr from "../assets/ersa_qr.png";
 
                         <li class="mb-4">
                             <a
-                                href="https://maps.app.goo.gl/GuEY43sCcK93r7268"
+                                href={address.href}
                                 class="hover:underline flex items-center gap-1"
                                 target="_blank"
                             >
                                 <MdLocationOn />
-                                Buenos Aires 264</a
+                                {address.street}</a
                             >
                         </li>
                         <li class="mb-4">
                             <a
-                                href="https://wa.me/5493804331153"
+                                href={whatsapp.href}
                                 class="hover:underline flex items-center gap-1"
                                 target="_blank"
                             >
                                 <MdWhatsapp />
-                                3804331153</a
+                                {whatsapp.label}</a
                             >
                         </li>
                     </ul>
@@ -95,10 +96,10 @@ import ersa_qr from "../assets/ersa_qr.png";
                     </h2>
                     <ul class="text-gray-400 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="https://www.instagram.com/ersa.lr/">
+                            <a href={instagram.href}>
                                 <Image
                                     src={ersa_qr}
-                                    alt="Imagen qr"
+                                    alt={`Código QR al Instagram ${instagram.handle}`}
                                     width={117}
                                     height={153}
                                 />

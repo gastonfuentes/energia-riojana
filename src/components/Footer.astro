@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import logo_horizontal from "../assets/logo-horizontal-blanco.svg";
-import { MdAlternateEmail, MdWhatsapp } from "react-icons/md";
-import { MdLocationOn } from "react-icons/md";
+import { MdAlternateEmail } from "react-icons/md";
+import { MdLocationOn, MdPhone } from "react-icons/md";
 import ersa_qr from "../assets/ersa_qr.png";
-import { address, email, instagram, whatsapp } from "../data/contact";
+import { address, email, instagram, phone } from "../data/contact";
 ---
 
 <footer
@@ -76,14 +76,18 @@ import { address, email, instagram, whatsapp } from "../data/contact";
                                 {address.street}</a
                             >
                         </li>
+                        {/* The landline is the only number in the footer. It is
+                            NOT on WhatsApp — never wire it to a wa.me link.
+                            No target="_blank": a tel: link opening in a new tab
+                            leaves a blank window on desktop. */}
                         <li class="mb-4">
                             <a
-                                href={whatsapp.href}
+                                href={phone.href}
                                 class="hover:underline flex items-center gap-1"
-                                target="_blank"
+                                aria-label={`Teléfono fijo ${phone.label}`}
                             >
-                                <MdWhatsapp />
-                                {whatsapp.label}</a
+                                <MdPhone />
+                                {phone.label}</a
                             >
                         </li>
                     </ul>

@@ -1,0 +1,38 @@
+---
+// TEMPORARY internal preview of the type scale. Remove before release.
+import Layout from '../layouts/Layout.astro';
+
+const rows = [
+  { label: 'display', el: 'p', cls: 'text-display', text: 'Energía que transforma' },
+  { label: 'h1', el: 'h1', cls: '', text: 'Título principal H1' },
+  { label: 'h2', el: 'h2', cls: '', text: 'Título de sección H2' },
+  { label: 'h3', el: 'h3', cls: '', text: 'Subtítulo H3' },
+  { label: 'h4', el: 'h4', cls: '', text: 'Encabezado menor H4' },
+  { label: 'lead', el: 'p', cls: 'text-lead', text: 'Bajada introductoria, un poco más grande.' },
+  { label: 'body', el: 'p', cls: '', text: 'Texto de cuerpo estándar para lectura cómoda en párrafos largos.' },
+];
+---
+
+<Layout title="Typography preview" noindex>
+  <section class="mx-auto max-w-4xl space-y-10 p-10">
+    <div>
+      <p class="text-eyebrow text-brand">Sistema tipográfico</p>
+      <h1>Montserrat — Jerarquía</h1>
+    </div>
+
+    <div class="space-y-6">
+      {
+        rows.map(({ label, el: El, cls, text }) => (
+          <div class="border-b border-gray-100 pb-4">
+            <span class="text-caption text-gray-400">{label}</span>
+            <El class={cls}>{text}</El>
+          </div>
+        ))
+      }
+      <div class="pb-4">
+        <span class="text-caption text-gray-400">eyebrow</span>
+        <p class="text-eyebrow text-brand">Etiqueta / overline</p>
+      </div>
+    </div>
+  </section>
+</Layout>

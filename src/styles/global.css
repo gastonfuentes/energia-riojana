@@ -3,15 +3,33 @@
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
-/* @config "tailwind.config.js"; */
 
+/* =========================================================
+   ENERGÍA RIOJANA — Brand design tokens
+   Grays come from Tailwind's default palette (bg-gray-*).
+   shadcn UI tokens live in :root further down.
+   ========================================================= */
 @theme {
-    --color-primary: EE5823;
-    --color-primary-variant-1: #EE2F23;
-	--color-primary-variant-2: #EE8123;
-	--color-generacion-distribuida: EE233F;
-	--color-sistemas-aislados: #EEA923;
-  }
+    /* Brand */
+    --color-brand: #d9282a; /* primary red */
+    --color-brand-orange: #eb5c26; /* accent orange */
+
+    /* Semantic — error kept distinct from the brand red */
+    --color-success: #16a34a;
+    --color-error: #b91c1c;
+    --color-warning: #d97706;
+
+}
+
+/* Brand gradient for hero / banner backgrounds */
+@utility bg-brand-gradient {
+    background-image: linear-gradient(
+        90deg,
+        var(--color-brand) 0%,
+        var(--color-brand-orange) 50%,
+        var(--color-brand) 100%
+    );
+}
 
 :root {
     --radius: 0.625rem;
@@ -21,18 +39,19 @@
     --card-foreground: oklch(0.13 0.028 261.692);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.13 0.028 261.692);
-    --primary: oklch(0.21 0.034 264.665);
-    --primary-foreground: oklch(0.985 0.002 247.839);
+    /* shadcn primary now maps to the brand red */
+    --primary: #d9282a;
+    --primary-foreground: #ffffff;
     --secondary: oklch(0.967 0.003 264.542);
     --secondary-foreground: oklch(0.21 0.034 264.665);
     --muted: oklch(0.967 0.003 264.542);
     --muted-foreground: oklch(0.551 0.027 264.364);
     --accent: oklch(0.967 0.003 264.542);
     --accent-foreground: oklch(0.21 0.034 264.665);
-    --destructive: oklch(0.577 0.245 27.325);
+    --destructive: #b91c1c;
     --border: oklch(0.928 0.006 264.531);
     --input: oklch(0.928 0.006 264.531);
-    --ring: oklch(0.707 0.022 261.325);
+    --ring: #d9282a;
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -55,18 +74,18 @@
     --card-foreground: oklch(0.985 0.002 247.839);
     --popover: oklch(0.21 0.034 264.665);
     --popover-foreground: oklch(0.985 0.002 247.839);
-    --primary: oklch(0.928 0.006 264.531);
-    --primary-foreground: oklch(0.21 0.034 264.665);
+    --primary: #d9282a;
+    --primary-foreground: #ffffff;
     --secondary: oklch(0.278 0.033 256.848);
     --secondary-foreground: oklch(0.985 0.002 247.839);
     --muted: oklch(0.278 0.033 256.848);
     --muted-foreground: oklch(0.707 0.022 261.325);
     --accent: oklch(0.278 0.033 256.848);
     --accent-foreground: oklch(0.985 0.002 247.839);
-    --destructive: oklch(0.704 0.191 22.216);
+    --destructive: #ef4444;
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.551 0.027 264.364);
+    --ring: #d9282a;
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -124,7 +143,122 @@
   * {
     @apply border-border outline-ring/50;
     }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
   body {
     @apply bg-background text-foreground;
     }
+
+  /* ---- Type scale — Montserrat (family set in Layout.astro).
+         Fluid sizing with clamp(min, preferred, max). ---- */
+  h1 {
+    font-size: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: clamp(1.875rem, 3vw + 0.5rem, 2.75rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 1.875rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: clamp(1.25rem, 1.5vw + 0.25rem, 1.5rem);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  h5 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  h6 {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* ---- Semantic typography helpers (apply color separately with text-*) ---- */
+@utility text-display {
+  font-size: clamp(2.75rem, 6vw + 1rem, 4.5rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+@utility text-lead {
+  font-size: clamp(1.125rem, 1vw + 0.75rem, 1.375rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility text-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+@utility text-caption {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+/* The impact figure. Bigger than text-display on purpose: the number is the
+   message, the sentence next to it is the footnote.
+   tabular-nums keeps every digit the same width, so a counter running 0 -> 160
+   doesn't make the layout jitter as it gains digits. */
+@utility text-stat {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Reveal-on-scroll ----
+   The hidden state is scoped to `.js`, a class only src/scripts/motion.ts can
+   set. Without JS nothing is ever hidden: the page renders in full, just without
+   the animation. A bare `opacity: 0` here would blank the page whenever the
+   bundle fails to load. */
+@layer base {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  [data-reveal] {
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+    [data-reveal] {
+      transition: none;
+    }
+  }
 }

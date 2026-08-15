@@ -1,0 +1,51 @@
+---
+// TEMPORARY internal preview of the <Circle> component. Remove before release.
+import Layout from '../layouts/Layout.astro';
+import Circle from '../components/Circle.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="Circle preview" noindex>
+  <section class="mx-auto max-w-5xl space-y-12 p-10">
+    <h1>Componente Circle</h1>
+
+    <div>
+      <p class="text-eyebrow mb-4 text-brand">Relleno — color por clase</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <Circle size="6rem" class="text-brand" />
+        <Circle size="6rem" class="text-brand-orange" />
+        <div class="rounded bg-gray-800 p-4"><Circle size="6rem" class="text-white" /></div>
+        <Circle size="6rem" class="text-brand/20" />
+      </div>
+      <p class="text-caption mt-2 text-gray-400">rojo · naranja · blanco · rojo transparente (/20)</p>
+    </div>
+
+    <div>
+      <p class="text-eyebrow mb-4 text-brand">Outline — vacío adentro</p>
+      <div class="flex flex-wrap items-center gap-6">
+        <Circle size="6rem" variant="outline" class="text-brand" />
+        <div class="rounded bg-gray-800 p-4">
+          <Circle size="6rem" variant="outline" class="text-white" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-eyebrow mb-4 text-brand">Semicírculos — half</p>
+      <div class="flex flex-wrap items-end gap-6">
+        <Circle size="6rem" half="top" class="text-brand" />
+        <Circle size="6rem" half="bottom" class="text-brand" />
+        <Circle size="6rem" half="left" class="text-brand" />
+        <Circle size="6rem" half="right" class="text-brand" />
+      </div>
+    </div>
+
+    <div>
+      <p class="text-eyebrow mb-4 text-brand">Combo — ícono dentro del círculo (patrón de Data)</p>
+      <div class="grid aspect-square w-24 place-items-center">
+        <Circle size="6rem" class="col-start-1 row-start-1 text-gray-100" />
+        <Icon name="icon-home-energy" size="3rem" class="col-start-1 row-start-1 text-brand" />
+      </div>
+    </div>
+  </section>
+</Layout>

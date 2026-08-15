@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import type { Project } from "../data/projects";
+
+/**
+ * <ProjectFeature /> — one featured program/work on /proyectos.
+ * SystemFeature's layout grammar (white card, matted photo, copy column) plus
+ * a category chip, a bullet list and a highlighted quote.
+ * Sides alternate by index to give the page a zig-zag rhythm.
+ */
+interface Props {
+  project: Project;
+  /** Puts the photo on the right (used on odd rows). */
+  flip?: boolean;
+}
+
+const { project, flip = false } = Astro.props;
+---
+
+<article
+  class:list={[
+    "flex w-5/6 flex-col gap-6 rounded-2xl bg-white p-4 shadow-sm md:w-3/4 md:items-center md:gap-12 md:p-8",
+    flip ? "md:flex-row-reverse" : "md:flex-row",
+  ]}
+>
+  <figure data-reveal class="w-full md:w-2/5">
+    <div class="rounded-[2.25rem] bg-white p-3 shadow-lg">
+      <Image
+        src={project.image}
+        alt={project.imageAlt}
+        widths={[480, 800]}
+        sizes="(min-width: 768px) 40vw, 100vw"
+        class="aspect-[4/3] w-full rounded-3xl object-cover"
+      />
+    </div>
+  </figure>
+
+  <div
+    data-reveal
+    style="--reveal-delay:160ms"
+    class="flex flex-col items-start gap-4 md:w-3/5"
+  >
+    <span
+      class="rounded-full bg-brand px-4 py-1 text-xs font-bold tracking-wide text-white uppercase"
+    >
+      {project.tag}
+    </span>
+    <h2>{project.title}</h2>
+    <p class="text-eyebrow text-brand">{project.subtitle}</p>
+    {project.description.map((p) => <p class="text-gray-600">{p}</p>)}
+
+    <ul class="mt-1 flex flex-col gap-2">
+      {
+        project.bullets.map((b) => (
+          <li class="flex items-start gap-2 text-gray-700">
+            <span class="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand/10 text-[10px] font-bold text-brand">
+              ✓
+            </span>
+            {b}
+          </li>
+        ))
+      }
+    </ul>
+
+    <blockquote
+      class="mt-2 border-l-4 border-brand-orange pl-4 font-medium text-gray-800 italic"
+    >
+      {project.quote}
+    </blockquote>
+  </div>
+</article>

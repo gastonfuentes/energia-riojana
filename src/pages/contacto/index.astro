@@ -1,19 +1,99 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 import Contacto from "@/sections/Contacto.astro";
-import HeroContacto from "@/sections/contacto/HeroContacto.astro";
 import MapsContact from "@/sections/contacto/MapsContact.astro";
+import imageHero from "@/assets/image_contacto.jpg";
+import { address, instagram, phone } from "@/data/contact";
+import { pageSeo } from "@/data/seo";
+import {
+    MdLocationOn,
+    MdOutlinePhotoCamera,
+    MdPhone,
+} from "react-icons/md";
+
+const { title, description } = pageSeo.contacto;
+
+const infoCards = [
+    {
+        icon: MdLocationOn,
+        title: "Oficinas",
+        lines: [{ label: address.full, href: address.href }],
+    },
+    {
+        icon: MdPhone,
+        title: "Director de operaciones",
+        lines: [{ label: phone.label, href: phone.href }],
+    },
+    {
+        icon: MdOutlinePhotoCamera,
+        title: "Seguinos",
+        lines: [{ label: instagram.label, href: instagram.href }],
+    },
+];
 ---
 
-<Layout title="Energia Riojana | Contacto">
-    <HeroContacto />
+<Layout title={title} description={description}>
+    <PageHero
+        image={imageHero}
+        imageAlt="Asesora de atención al cliente con auriculares respondiendo consultas en su computadora"
+        eyebrow="Contacto"
+        title="En La Rioja conocemos el sol"
+        lead="Es parte de nuestra historia y nuestra identidad. Hoy lo aprovechamos para convertir a la provincia en un faro de sustentabilidad."
+    />
+
     <main class="flex flex-col items-center justify-center text-gray-800">
-        <section
-            class="flex flex-col py-8 md:py-24 gap-8 items-center justify-center"
+        <div
+            class="flex w-full flex-col items-center gap-10 py-16 md:gap-14 md:py-24"
         >
+            <SectionHeader
+                eyebrow="Escribinos"
+                title="Iniciá hoy tu transformación energética"
+                lead="Dejanos tu consulta y te respondemos a la brevedad."
+            />
             <Contacto />
 
+            <div class="grid w-5/6 gap-5 md:w-3/4 md:grid-cols-3">
+                {
+                    infoCards.map((card, i) => (
+                        <article
+                            data-reveal
+                            style={`--reveal-delay:${i * 100}ms`}
+                            class="flex flex-col items-start gap-3 rounded-2xl bg-white p-6 shadow-sm"
+                        >
+                            <span class="grid h-12 w-12 place-items-center rounded-full bg-brand/10 text-2xl text-brand">
+                                <card.icon />
+                            </span>
+                            <h3 class="text-base font-bold">{card.title}</h3>
+                            <ul class="flex flex-col gap-1">
+                                {card.lines.map((line) => (
+                                    <li>
+                                        <a
+                                            href={line.href}
+                                            target={
+                                                line.href.startsWith("http")
+                                                    ? "_blank"
+                                                    : undefined
+                                            }
+                                            rel={
+                                                line.href.startsWith("http")
+                                                    ? "noopener noreferrer"
+                                                    : undefined
+                                            }
+                                            class="text-gray-600 transition-colors hover:text-brand hover:underline"
+                                        >
+                                            {line.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))
+                }
+            </div>
+
             <MapsContact />
-        </section>
+        </div>
     </main>
 </Layout>

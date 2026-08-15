@@ -1,35 +1,92 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Benefits from "../sections/Benefits.astro";
 import Contacto from "../sections/Contacto.astro";
-import Data from "../sections/Data.astro";
-import OffGrid from "../sections/OffGrid.astro";
-import OnGrid from "../sections/OnGrid.astro";
-import Data2 from "../sections/Data2.astro";
+import CategoryCards from "../sections/CategoryCards.astro";
+import CurvedBand from "../sections/CurvedBand.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import StatsRow from "../sections/StatsRow.astro";
+import SystemFeature from "../sections/SystemFeature.astro";
 import Hero from "../sections/Hero.astro";
-import DividerUp from "@/sections/DividerUp.astro";
-import DividerDown from "@/sections/DividerDown.astro";
+import imageOnGrid from "../assets/images/system-ongrid.jpg";
+import imageOffGrid from "../assets/images/system-offgrid.jpg";
+import { provinceStats, communityStats } from "../data/stats";
+import { pageSeo } from "../data/seo";
 
-const title = "Energia Riojana | Home";
+const { title, description } = pageSeo.home;
 ---
 
-<Layout title={title}>
-	<Hero />
+<Layout title={title} description={description}>
+  <Hero />
 
-	<main
-		class="flex flex-col items-center justify-center text-gray-800 py-8 md:py-24"
-	>
-		<Benefits />
-		<DividerUp />
-		<Data />
-		<DividerDown />
-		<div class="flex flex-col gap-8 items-center justify-center my-8">
-			<OnGrid />
-			<OffGrid />
-		</div>
-		<DividerUp />
-		<Data2 />
-		<DividerDown />
-		<Contacto />
-	</main>
+  <main class="flex flex-col items-center justify-center text-gray-800">
+    <CategoryCards />
+
+    {/* Mission statement — same <SectionHeader /> as every other section, so it
+        sits on the shared type scale instead of a one-off size. */}
+    <section class="flex w-full justify-center py-16 md:py-24">
+      <SectionHeader
+        eyebrow="Nuestra misión es clara:"
+        title="Brindar soluciones energéticas seguras, eficientes y de calidad,"
+        lead="protegiendo el entorno y asegurando el futuro de cada rincón de nuestra tierra."
+      >
+        Brindar soluciones energéticas <span class="text-brand-orange"
+          >seguras, eficientes y de calidad</span
+        >,
+      </SectionHeader>
+    </section>
+
+    <CurvedBand>
+      <StatsRow stats={provinceStats} />
+    </CurvedBand>
+
+    <div
+      class="flex w-full flex-col items-center gap-10 py-16 md:gap-16 md:py-24"
+    >
+      <SectionHeader
+        eyebrow="Nuestros sistemas"
+        title="On grid u off grid: hay una solución para cada necesidad"
+        lead="Conectado a la red o totalmente autónomo — el sol riojano llega a donde lo necesites."
+      />
+
+      <SystemFeature
+        title="Sistemas On Grid"
+        description="Los sistemas on-grid están conectados a la red eléctrica, permitiendo usar energía solar y vender el excedente a la red. Son ideales en zonas con acceso estable a electricidad."
+        image={imageOnGrid}
+        imageAlt="Paneles solares sobre el techo de una nave industrial conectada a la red eléctrica"
+      />
+
+      <SystemFeature
+        title="Sistemas Off Grid"
+        description="Los sistemas off-grid funcionan de manera autónoma con baterías, perfectos para lugares remotos o sin conexión a la red. Ambos ofrecen soluciones adaptadas a distintas necesidades energéticas."
+        image={imageOffGrid}
+        imageAlt="Panel solar autónomo montado en el suelo junto a un puesto rural de montaña"
+      />
+
+      <a
+        href="/productos"
+        class="group inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-orange"
+      >
+        Ver Productos
+        <span
+          class="grid h-7 w-7 place-items-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1"
+          >&rarr;</span
+        >
+      </a>
+    </div>
+
+    <CurvedBand>
+      <StatsRow stats={communityStats} />
+    </CurvedBand>
+
+    <div
+      class="flex w-full flex-col items-center gap-10 py-16 md:gap-14 md:py-24"
+    >
+      <SectionHeader
+        eyebrow="Contacto"
+        title="Iniciá tu transformación energética hoy"
+        lead="Escribinos y te respondemos a la brevedad."
+      />
+      <Contacto />
+    </div>
+  </main>
 </Layout>

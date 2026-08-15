@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  /** Optional pill CTA rendered after the copy. */
+  cta?: { label: string; href: string };
+}
+
+const { title, description, image, imageAlt, cta } = Astro.props;
+
+// Light card, same shell as Contacto. Text colour is inherited from <main>
+// (text-gray-800) — do not force a colour here.
+---
+
+<article
+  class="flex w-5/6 flex-col gap-6 rounded-2xl bg-white p-4 shadow-sm md:w-3/4 md:flex-row md:items-center md:gap-12 md:p-8"
+>
+  {/* White mat around the photo. The radii MUST stay concentric — outer = inner
+      + padding (24px + 12px = 36px). Measured: that keeps the white band at a
+      flat 12px all the way around; equal radii (or equal percentages) fatten it
+      to 15.6px at the corners.
+      The shadow is load-bearing here: white on bg-gray-100 is almost no contrast,
+      so without it the mat would not read as a mat at all. */}
+  <figure data-reveal class="w-full md:w-1/2">
+    <div class="rounded-[2.25rem] bg-white p-3 shadow-lg">
+      <Image
+        src={image}
+        alt={imageAlt}
+        widths={[480, 800, 1600]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        class="aspect-[4/3] w-full rounded-3xl object-cover"
+      />
+    </div>
+  </figure>
+
+  <div
+    data-reveal
+    style="--reveal-delay:160ms"
+    class="flex flex-col items-start gap-4 md:w-1/2"
+  >
+    <h2>{title}</h2>
+    <p class="text-lead">{description}</p>
+    {
+      cta && (
+        <a
+          href={cta.href}
+          target={cta.href.startsWith("http") ? "_blank" : undefined}
+          rel={cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          class="group mt-1 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-orange"
+        >
+          {cta.label}
+          <span class="grid h-7 w-7 place-items-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1">
+            &rarr;
+          </span>
+        </a>
+      )
+    }
+  </div>
+</article>

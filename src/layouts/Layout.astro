@@ -1,37 +1,50 @@
 ---
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
-import NavBar from "../components/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { NavBarShadcn } from "@/components/NavBarShadcn";
 import Footer from "@/components/Footer.astro";
+import Seo from "@/components/Seo.astro";
 
 interface Props {
 	title: string;
+	/** Shown as the Google snippet and the link preview. ~155 characters. */
+	description?: string;
+	/** Keeps the page out of the index. For 404, confirmations and previews. */
+	noindex?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, description, noindex } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es-AR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<Seo title={title} description={description} noindex={noindex} />
+
+		{/* Blocking on purpose: the pre-reveal hidden state is scoped to `.js`,
+		    so it must be in place before the first paint. Deferring this would
+		    flash the content in and then hide it. */}
+		<script is:inline>
+			document.documentElement.classList.add("js");
+		</script>
+		<script>
+			import "../scripts/motion";
+		</script>
 
 		<ClientRouter />
 	</head>
-	<body class="bg-gray-300">
-		<!-- <NavBar /> -->
-		<NavBarShadcn client:load />
+	<body class="bg-gray-50">
+		<header class="absolute inset-x-0 top-0 z-50">
+			<NavBarShadcn client:load />
+		</header>
 
-		<div class="w-full mx-auto">
-			<slot />
-		</div>
+		<slot />
 
 		<Footer />
 	</body>

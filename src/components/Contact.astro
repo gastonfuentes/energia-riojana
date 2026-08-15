@@ -1,5 +1,9 @@
 ---
-
+// Netlify form: the data-netlify/honeypot/action attributes are build-time
+// infrastructure — Netlify parses them from the static HTML. Do not remove.
+const fieldClasses =
+  "block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40 focus:outline-none";
+const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
 ---
 
 <form
@@ -19,38 +23,29 @@
         autocomplete="off"
     />
     <div>
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-500"
-            >Tu correo</label
-        >
+        <label for="email" class={labelClasses}>Tu correo</label>
         <input
             type="email"
             id="email"
-            class="shadow-sm bg-gray-50 border-riant_2 text-gray-900 text-sm rounded-lg focus:ring-riant_1 focus:border-riant_1 block w-full p-2.5"
+            class={fieldClasses}
             placeholder="tucorreo@tucorreo.com"
             required
             name="email"
         />
     </div>
     <div>
-        <label
-            for="subject"
-            class="block mb-2 text-sm font-medium text-gray-500">Asunto</label
-        >
+        <label for="subject" class={labelClasses}>Asunto</label>
         <input
             type="text"
             id="subject"
-            class="shadow-sm bg-gray-50 border-riant_2 text-gray-900 text-sm rounded-lg focus:ring-riant_1 focus:border-riant_1 block w-full p-2.5"
+            class={fieldClasses}
             placeholder="Dejame aqui el asunto de tu mensaje"
             required
             name="asunto"
         />
     </div>
     <div>
-        <label
-            for="telefono"
-            class="block mb-2 text-sm font-medium text-gray-500"
-            >Teléfono</label
-        >
+        <label for="telefono" class={labelClasses}>Teléfono</label>
         <input
             type="tel"
             id="telefono"
@@ -58,27 +53,23 @@
             inputmode="tel"
             autocomplete="tel"
             pattern="\\+?[0-9\\s()\\-]{7,20}"
-            class="shadow-sm bg-gray-50 border-riant_2 text-gray-900 text-sm rounded-lg focus:ring-riant_1 focus:border-riant_1 block w-full p-2.5"
+            class={fieldClasses}
             placeholder="+54 9 380 000 0000"
             required
         />
     </div>
     <div class="sm:col-span-2">
-        <label
-            for="message"
-            class="block mb-2 text-sm font-medium text-gray-500"
-            >Tu mensaje</label
-        >
+        <label for="message" class={labelClasses}>Tu mensaje</label>
         <textarea
             name="mensaje"
             id="message"
             rows="6"
-            class="shadow-sm bg-gray-50 border-riant_2 text-gray-900 text-sm rounded-lg focus:ring-riant_1 focus:border-riant_1 block w-full p-2.5"
+            class={fieldClasses}
             placeholder="Escribe aqui tu mensaje"></textarea>
     </div>
     <button
         type="submit"
-        class="my-4 py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary sm:w-fit hover:bg-riant_1 focus:ring-4 focus:outline-none focus:ring-riant_2"
+        class="my-4 inline-flex items-center gap-2 self-start rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-orange focus:ring-4 focus:ring-brand/40 focus:outline-none"
         >Enviar mensaje</button
     >
 </form>

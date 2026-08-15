@@ -1,0 +1,91 @@
+---
+import { getImage } from "astro:assets";
+import ogSource from "@/assets/images/hero-home.jpg";
+import logoSource from "@/assets/logo-ersa.svg";
+import { defaultDescription, organizationSchema, siteName, siteUrl } from "@/data/seo";
+
+/**
+ * <Seo /> — every tag in <head> that a crawler or a link preview reads.
+ *
+ * Lives in one component because these tags only work as a set: a canonical
+ * without an absolute og:url, or a description without an og:description,
+ * produces a page that indexes fine but previews as a blank rectangle when
+ * someone shares it on WhatsApp — which is where most of ERSA's traffic starts.
+ */
+interface Props {
+  title: string;
+  description?: string;
+  /** Set on pages that must exist but must never rank (404, success, previews). */
+  noindex?: boolean;
+}
+
+const { title, description = defaultDescription, noindex = false } = Astro.props;
+
+/**
+ * Google treats `/productos` and `/productos/` as two separate URLs. Astro
+ * builds directory-style output, so the trailing-slash form is the one actually
+ * served and the one the sitemap lists — the canonical matches it exactly.
+ * Normalized rather than passed through so a link without the slash still
+ * resolves to a single canonical.
+ */
+const path = `${Astro.url.pathname.replace(/\/+$/, "")}/`;
+const canonical = `${siteUrl}${path}`;
+
+/**
+ * 1200x630 is the size Facebook, WhatsApp and LinkedIn crop to. Generated from
+ * the hero at build time rather than kept as a hand-made file in public/, so it
+ * can never fall out of sync with the site's own photography.
+ */
+const og = await getImage({
+  src: ogSource,
+  width: 1200,
+  height: 630,
+  format: "jpg",
+});
+const ogImage = `${siteUrl}${og.src}`;
+const logoUrl = `${siteUrl}${logoSource.src}`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{
+  noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+  )
+}
+
+{/* Open Graph — Facebook, WhatsApp, Instagram, LinkedIn */}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="Paneles solares de Energía Riojana bajo el sol de La Rioja"
+/>
+
+{/* Twitter/X falls back to Open Graph, but only if the card type is declared. */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{/* Structured data. Only on indexable pages — noindex pages have no panel. */}
+{
+  !noindex && (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(organizationSchema(logoUrl))}
+    />
+  )
+}

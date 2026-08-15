@@ -1,21 +1,59 @@
 ---
-import { getImage } from "astro:assets";
-import imagen_hero from "../assets/image-hero.png";
-const heroImage = await getImage({ src: imagen_hero });
-/* 
-console.log(heroImage); */
+import { Image } from "astro:assets";
+import imagen_hero from "../assets/images/hero-home.jpg";
+import { heroWidths } from "@/lib/heroWidths";
+
+/**
+ * The photo is a real <img>, not a CSS background.
+ *
+ * A `background-image` is invisible to Google Images, carries no alt text, and
+ * cannot be found by the browser until the stylesheet has parsed — which is
+ * expensive on the one element that IS the LCP here. As markup it is
+ * discovered during the initial HTML scan, and `fetchpriority="high"` moves it
+ * ahead of the fonts and the JS in the request queue.
+ */
 ---
 
 <section
-    class="flex flex-col justify-center items-center h-screen bg-cover text-white"
-    style=`background-image: url(${heroImage.src});`
+  class="relative flex min-h-screen flex-col overflow-hidden text-white md:h-screen"
 >
-    <article class="w-3/4">
-        <h1 class="text-4xl md:text-6xl font-extrabold">
-            Eficiencia energética y desarrollo ambiental sostenible
-        </h1>
-        <p class="md:text-xl">
-            Promovemos el desarrollo sostenible de La Rioja.
-        </p>
-    </article>
+  <Image
+    src={imagen_hero}
+    alt="Vista en primer plano de un conjunto de paneles solares fotovoltaicos azules"
+    widths={heroWidths(imagen_hero.width)}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+  />
+
+  <!-- Overlay for legibility over the photo -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/80"
+  >
+  </div>
+
+  <div
+    class="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-6 pt-24 pb-16 text-center"
+  >
+    <p class="text-eyebrow text-white/80">Bienvenidos a la energía renovable</p>
+    <h1 class="text-[clamp(1.5rem,6vw,4.25rem)] leading-[1.05]">
+      <span class="whitespace-nowrap">Hay mucha Rioja en el sol,</span><br />
+      y lo vamos a aprovechar.
+    </h1>
+    <p class="text-lead max-w-2xl text-white/85">
+      En Energía Riojana impulsamos el desarrollo sostenible de nuestra
+      provincia, transformando la fuerza del sol en bienestar para todos.
+    </p>
+    <a
+      href="/institucional"
+      class="group mt-1 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-orange"
+    >
+      Conocenos
+      <span
+        class="grid h-7 w-7 place-items-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1"
+        >&rarr;</span
+      >
+    </a>
+  </div>
 </section>

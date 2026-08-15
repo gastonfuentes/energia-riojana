@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Component previews and the post-submit confirmation: real routes, no search value.
+Disallow: /circle-preview
+Disallow: /icon-preview
+Disallow: /type-preview
+Disallow: /success
+
+Sitemap: https://energia-riojana.com.ar/sitemap-index.xml

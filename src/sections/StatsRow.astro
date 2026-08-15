@@ -1,0 +1,53 @@
+---
+import Icon from "../components/Icon.astro";
+
+interface Stat {
+  /** The figure. A number, because it is one — the counter reads it directly. */
+  value: number;
+  /** Rendered before the figure and kept out of the count-up. */
+  prefix?: string;
+  /** Sentence explaining what the figure counts. */
+  label: string;
+  /** File name in src/assets/icons, without extension. */
+  icon: string;
+}
+
+interface Props {
+  stats: Stat[];
+}
+
+const { stats } = Astro.props;
+
+// Two columns, same widths and gap as SystemFeature, so the band reads on two
+// vertical rules: figures end on the image's right edge, sentences start where
+// the section copy starts. Keep these in sync with SystemFeature.
+//
+// The icon rides right next to its figure and the pair is flushed right, so the
+// figures line up even though "+160" and "+37" are not the same width. The icons
+// land at slightly different x as a result — that is the deliberate trade.
+
+// Stats enter one after the other rather than all at once.
+const STAGGER_MS = 140;
+---
+
+<div class="flex flex-col gap-20 md:gap-28">
+  {
+    stats.map((stat, index) => (
+      <article
+        data-reveal
+        style={`--reveal-delay:${index * STAGGER_MS}ms`}
+        class="flex flex-col gap-5 md:flex-row md:items-center md:gap-14"
+      >
+        <div class="flex items-center gap-5 md:w-1/2 md:justify-end">
+          <Icon name={stat.icon} size="5rem" class="text-white" />
+          {/* prettier-ignore */}
+          <p class="text-stat">{stat.prefix ?? "+"}<span data-count-to={stat.value}>{stat.value}</span></p>
+        </div>
+
+        <div class="md:w-1/2">
+          <p class="text-lead text-white/90 md:w-4/5">{stat.label}</p>
+        </div>
+      </article>
+    ))
+  }
+</div>

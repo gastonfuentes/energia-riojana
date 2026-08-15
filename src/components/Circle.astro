@@ -1,0 +1,62 @@
+---
+/**
+ * <Circle /> — reusable decorative circle / semicircle.
+ *
+ * Color comes from `currentColor`: set a text-* utility (text-brand,
+ * text-white) and optionally an opacity modifier (e.g. text-brand/20) for
+ * a translucent fill. Use variant="outline" for a ring (transparent inside).
+ * `half` renders a geometric semicircle cut on the given side.
+ */
+interface Props {
+  /** Diameter — any CSS length. Default 4rem. */
+  size?: string;
+  /** Solid fill (default) or an outline ring. */
+  variant?: 'solid' | 'outline';
+  /** Render a semicircle cut on the given side. */
+  half?: 'none' | 'top' | 'bottom' | 'left' | 'right';
+  /** Ring thickness in viewBox units (only for variant="outline"). */
+  stroke?: number;
+  class?: string;
+}
+
+const {
+  size = '4rem',
+  variant = 'solid',
+  half = 'none',
+  stroke = 6,
+  class: className,
+} = Astro.props;
+
+const viewBoxes = {
+  none: '0 0 100 100',
+  top: '0 0 100 50',
+  bottom: '0 50 100 50',
+  left: '0 0 50 100',
+  right: '50 0 50 100',
+} as const;
+
+const halfWidth = half === 'left' || half === 'right';
+const halfHeight = half === 'top' || half === 'bottom';
+
+const width = halfWidth ? `calc(${size} / 2)` : size;
+const height = halfHeight ? `calc(${size} / 2)` : size;
+
+const isOutline = variant === 'outline';
+const radius = isOutline ? 50 - stroke / 2 : 50;
+---
+
+<svg
+  viewBox={viewBoxes[half]}
+  style={`width:${width};height:${height}`}
+  class:list={['inline-block shrink-0', className]}
+  aria-hidden="true"
+>
+  <circle
+    cx="50"
+    cy="50"
+    r={radius}
+    fill={isOutline ? 'none' : 'currentColor'}
+    stroke={isOutline ? 'currentColor' : 'none'}
+    stroke-width={isOutline ? stroke : 0}
+  />
+</svg>

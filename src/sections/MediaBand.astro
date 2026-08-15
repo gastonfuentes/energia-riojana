@@ -1,0 +1,52 @@
+---
+import { getImage } from "astro:assets";
+
+/**
+ * <MediaBand /> — full-width photo band with a short claim on top.
+ *
+ * The PDF spec for this slot is "video Youtube // imagen provisoria paneles":
+ * today it renders the photo; when the client hands over the video URL, pass
+ * `videoId` and the same band swaps the background for a YouTube embed without
+ * any redesign.
+ */
+interface Props {
+  image: ImageMetadata;
+  eyebrow: string;
+  title: string;
+  /** YouTube video id. When present, replaces the photo with the embed. */
+  videoId?: string;
+}
+
+const { image, eyebrow, title, videoId } = Astro.props;
+const bg = await getImage({ src: image, width: 1920 });
+---
+
+<section class="relative w-full overflow-hidden">
+  {
+    videoId ? (
+      <div class="aspect-video w-full">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="h-full w-full"
+        />
+      </div>
+    ) : (
+      <div
+        class="relative flex min-h-[45vh] w-full items-center justify-center bg-cover bg-center py-24 md:min-h-[55vh]"
+        style={`background-image: url(${bg.src});`}
+      >
+        <div class="absolute inset-0 bg-black/55" />
+        <div
+          data-reveal
+          class="relative z-10 mx-auto flex w-11/12 max-w-3xl flex-col items-center gap-3 text-center text-balance text-white"
+        >
+          <p class="text-eyebrow text-white/80">{eyebrow}</p>
+          <h2>{title}</h2>
+        </div>
+      </div>
+    )
+  }
+</section>

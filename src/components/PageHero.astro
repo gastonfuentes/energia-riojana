@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import { heroWidths } from "@/lib/heroWidths";
+
+/**
+ * <PageHero /> — compact hero for inner pages.
+ *
+ * Same visual language as the home hero (photo + dark overlay + eyebrow +
+ * title + lead) but NOT full-screen: on inner pages the content should arrive
+ * without a full scroll. The top padding clears the absolute navbar.
+ *
+ * Like the home hero, the photo is a real <img> rather than a CSS background:
+ * it is the LCP element of every inner page, and as markup the browser can
+ * start fetching it before the stylesheet resolves. `imageAlt` is required
+ * because these are photographs of ERSA's own work — they belong in Google
+ * Images, and a screen reader should be able to name them.
+ */
+interface Props {
+  image: ImageMetadata;
+  imageAlt: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+}
+
+const { image, imageAlt, eyebrow, title, lead } = Astro.props;
+---
+
+<section
+  class="relative flex min-h-[60vh] flex-col overflow-hidden text-white"
+>
+  <Image
+    src={image}
+    alt={imageAlt}
+    widths={heroWidths(image.width)}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+  />
+
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/80"
+  >
+  </div>
+
+  <div
+    class="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-6 pt-28 pb-16 text-center"
+  >
+    <p class="text-eyebrow text-white/80">{eyebrow}</p>
+    <h1 class="max-w-4xl text-balance">{title}</h1>
+    {lead && <p class="text-lead max-w-2xl text-balance text-white/85">{lead}</p>}
+  </div>
+</section>

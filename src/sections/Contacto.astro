@@ -2,13 +2,18 @@
 import { Image } from "astro:assets";
 import image_card from "../assets/card-energia-riojana.png";
 import Contact from "../components/Contact.astro";
+import { inquiryForm } from "../data/contact";
 
 // The section heading lives OUTSIDE this card (SectionHeader on the home,
 // HeroContacto on /contacto) — the card is just the form surface.
+// The card, not the bare <form>, is the CTA anchor: landing on it keeps the
+// intro paragraph in view, even before (or without) the script below.
 ---
 
 <section
-    class="flex w-5/6 flex-col gap-2 rounded-2xl bg-white p-4 shadow-sm md:w-3/4 md:gap-4 md:p-8"
+    id={inquiryForm.id}
+    data-inquiry-card
+    class="flex w-5/6 scroll-mt-6 flex-col gap-2 rounded-2xl bg-white p-4 shadow-sm md:w-3/4 md:gap-4 md:p-8"
 >
     <article class="flex flex-col">
         <div
@@ -31,3 +36,33 @@ import Contact from "../components/Contact.astro";
         </div>
     </article>
 </section>
+
+<script>
+    // A CTA links to /contacto/?asunto=...#formulario. The browser (or
+    // <ClientRouter />) aligns the card's TOP with the screen edge; center it
+    // instead so the intro and the whole form are in view. A card taller than
+    // the screen (small phones) stays top-aligned via scroll-mt, otherwise
+    // centering would cut the intro off. `astro:page-load` fires on the first
+    // load and after every client-side navigation.
+    //
+    // The card's id is read from the DOM rather than imported from contact.ts:
+    // a second client import of that module makes Vite split it into a shared
+    // chunk, turning both small inline scripts into three extra requests.
+    function centerInquiryCard() {
+        const card = document.querySelector<HTMLElement>("[data-inquiry-card]");
+        if (!card || window.location.hash !== `#${card.id}`) return;
+
+        const { top, height } = card.getBoundingClientRect();
+        if (height > window.innerHeight) {
+            card.scrollIntoView({ block: "start" });
+            return;
+        }
+        // Computed by hand: scrollIntoView({ block: "center" }) would count
+        // the scroll-mt margin as part of the card and sit it off-center.
+        window.scrollTo({
+            top: window.scrollY + top - (window.innerHeight - height) / 2,
+        });
+    }
+
+    document.addEventListener("astro:page-load", centerInquiryCard);
+</script>

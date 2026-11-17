@@ -1,6 +1,4 @@
 ---
-import { inquiryForm } from "../data/contact";
-
 // Netlify form: the data-netlify/honeypot/action attributes are build-time
 // infrastructure — Netlify parses them from the static HTML. Do not remove.
 const fieldClasses =
@@ -9,8 +7,7 @@ const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
 ---
 
 <form
-    id={inquiryForm.id}
-    class="flex scroll-mt-8 flex-col gap-2 p-4"
+    class="flex flex-col gap-2 p-4"
     netlify-honeypot="bot-field"
     data-netlify="true"
     name="contact"
@@ -90,8 +87,10 @@ const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
         const subject = new URLSearchParams(window.location.search)
             .get(inquiryForm.subjectParam)
             ?.trim();
+        // By the Netlify form name, which never changes: the #formulario
+        // anchor lives on the wrapping card (src/sections/Contacto.astro).
         const field = document.querySelector<HTMLInputElement>(
-            `#${inquiryForm.id} input[name="asunto"]`,
+            'form[name="contact"] input[name="asunto"]',
         );
 
         if (subject && field && !field.value) {

@@ -10,7 +10,14 @@
  * below instead, which is where they actually carry weight.
  */
 
-import { address, email, instagram, phone, whatsapp } from "./contact";
+import {
+  address,
+  email,
+  inquiryChannel,
+  instagram,
+  phone,
+  whatsapp,
+} from "./contact";
 
 /** Canonical origin. No trailing slash — every URL is built by joining onto it. */
 export const siteUrl = "https://energia-riojana.com.ar";
@@ -112,7 +119,12 @@ export function organizationSchema(logoUrl: string) {
       "@type": "State",
       name: "La Rioja, Argentina",
     },
-    sameAs: [instagram.href, whatsapp.href],
+    // WhatsApp is listed only while it is the live inquiry channel, so Google
+    // never shows a paused chat as an official way to reach the company.
+    sameAs: [
+      instagram.href,
+      ...(inquiryChannel === "whatsapp" ? [whatsapp.href] : []),
+    ],
     knowsAbout: [
       "Energía solar fotovoltaica",
       "Sistemas on grid",

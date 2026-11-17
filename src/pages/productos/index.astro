@@ -9,12 +9,10 @@ import imageHogar from "@/assets/images/home-card-hogar.jpg";
 import imagePymes from "@/assets/images/home-card-pymes.jpg";
 import imageIndustria from "@/assets/images/system-ongrid.jpg";
 import imageAdaptado from "@/assets/images/project-aislados.jpg";
-import { whatsapp } from "@/data/contact";
+import { inquiry } from "@/data/contact";
 import { pageSeo } from "@/data/seo";
 
 const { title, description } = pageSeo.productos;
-
-const waLink = whatsapp.link;
 
 // Copy synthesized from the Llama Solar / Parques programs of the previous
 // site, per the 2026 brief ("misma info de la web").
@@ -27,9 +25,7 @@ const segmentos = [
     imageAlt: "Instalación solar residencial sobre el techo de una casa",
     cta: {
       label: "Pedí tu kit",
-      href: waLink(
-        "Hola, me comunico solicitando más información sobre el kit de energía solar para el hogar.",
-      ),
+      href: inquiry.href("hogar"),
     },
   },
   {
@@ -40,9 +36,7 @@ const segmentos = [
     imageAlt: "Comercio con sistema de energía solar instalado",
     cta: {
       label: "Pedí tu presupuesto",
-      href: waLink(
-        "Hola, me comunico solicitando más información sobre productos y planes para empresas.",
-      ),
+      href: inquiry.href("empresas"),
     },
   },
   {
@@ -54,9 +48,7 @@ const segmentos = [
       "Paneles solares sobre el techo de una nave industrial conectada a la red eléctrica",
     cta: {
       label: "Pedí tu presupuesto",
-      href: waLink(
-        "Hola, me comunico solicitando más información sobre productos y planes para industrias y agro.",
-      ),
+      href: inquiry.href("industria"),
     },
   },
   {
@@ -67,9 +59,7 @@ const segmentos = [
     imageAlt: "Sistema solar autónomo instalado en una zona aislada",
     cta: {
       label: "Consultanos",
-      href: waLink(
-        "Hola, me comunico solicitando más información sobre sistemas de energía solar adaptados a medida.",
-      ),
+      href: inquiry.href("adaptado"),
     },
   },
 ];
@@ -133,14 +123,12 @@ const segmentos = [
           Contanos tu caso y te asesoramos sin compromiso.
         </p>
         <a
-          href={waLink(
-            "Hola, quiero asesoramiento para elegir un sistema de energía solar.",
-          )}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={inquiry.href("asesoramiento")}
+          target={inquiry.opensNewTab ? "_blank" : undefined}
+          rel={inquiry.opensNewTab ? "noopener noreferrer" : undefined}
           class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-brand transition-transform hover:scale-105"
         >
-          Escribinos por WhatsApp
+          {inquiry.directLabel}
         </a>
       </div>
     </CurvedBand>

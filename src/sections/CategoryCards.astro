@@ -4,7 +4,7 @@ import cardHogarImg from "../assets/images/home-card-hogar.jpg";
 import cardPymesImg from "../assets/images/home-card-pymes.jpg";
 import cardIndustriaImg from "../assets/images/home-card-industria.jpg";
 import Icon from "../components/Icon.astro";
-import { whatsapp } from "../data/contact";
+import { inquiry } from "../data/contact";
 
 const hogarImage = await getImage({ src: cardHogarImg, width: 900 });
 const pymesImage = await getImage({ src: cardPymesImg, width: 900 });
@@ -15,7 +15,7 @@ const cards = [
     title: "Hogar",
     cta: "Pedí tu kit",
     icon: "icon-home-fridge",
-    msg: "Hola, me comunico solicitando más información sobre el kit de energía solar para el hogar.",
+    topic: "hogar" as const,
     image: hogarImage.src,
     featured: true,
   },
@@ -23,7 +23,7 @@ const cards = [
     title: "Pymes",
     cta: "Pedí tu presupuesto",
     icon: "icon-commercial-pos",
-    msg: "Hola, me comunico solicitando más información sobre productos y planes para empresas.",
+    topic: "empresas" as const,
     image: pymesImage.src,
     featured: false,
   },
@@ -31,13 +31,11 @@ const cards = [
     title: "Industria y Agro",
     cta: "Pedí tu presupuesto",
     icon: "icon-industrial-factory",
-    msg: "Hola, me comunico solicitando más información sobre productos y planes para industrias y agro.",
+    topic: "industria" as const,
     image: industriaImage.src,
     featured: false,
   },
 ];
-
-const waLink = whatsapp.link;
 
 // Opacity logic: the "active" card shows its image, the rest show red + icon.
 // Default active = featured; hovering any card makes THAT one active.
@@ -97,9 +95,9 @@ const iconClasses = (featured: boolean) =>
                 {card.title}
               </h3>
               <a
-                href={waLink(card.msg)}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={inquiry.href(card.topic)}
+                target={inquiry.opensNewTab ? "_blank" : undefined}
+                rel={inquiry.opensNewTab ? "noopener noreferrer" : undefined}
                 class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand transition-transform hover:scale-105"
               >
                 {card.cta}

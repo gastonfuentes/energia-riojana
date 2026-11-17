@@ -74,14 +74,16 @@ const copyrightYears =
                         Contacto
                     </h2>
                     <ul class="text-gray-400 dark:text-gray-400 text-sm">
+                        {/* The address is written out so visitors without a mail
+                            app can copy it. No target="_blank": like tel:, a
+                            mailto: in a new tab leaves a blank window behind. */}
                         <li class="mb-4">
                             <a
                                 href={email.href}
                                 class="hover:underline flex items-center gap-1"
-                                target="_blank"
                             >
                                 <MdAlternateEmail />
-                                Enviar correo
+                                {email.address}
                             </a>
                         </li>
 

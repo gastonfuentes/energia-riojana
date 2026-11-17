@@ -34,7 +34,13 @@ export const phone = {
   href: "tel:+543804481523",
 };
 
-const emailAddress = "imartinez@energia-riojana.com.ar";
+/**
+ * Inquiry inbox. Replaces the brief's imartinez@ at the company's request
+ * (2026-11), when email became the only inquiry channel. The Netlify form
+ * notification (set in the Netlify dashboard, not in this repo) must point at
+ * this same address, or form submissions reach nobody.
+ */
+const emailAddress = "anates@energia-riojana.com.ar";
 
 export const email = {
   address: emailAddress,

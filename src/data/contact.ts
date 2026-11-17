@@ -52,3 +52,16 @@ export const instagram = {
   label: "@ersa.lr en Instagram",
   href: "https://www.instagram.com/ersa.lr/",
 };
+
+/**
+ * The contact form (src/components/Contact.astro). A CTA can link to it with
+ * the topic in the query string so the Asunto field arrives already filled.
+ */
+export const inquiryForm = {
+  /** Page whose form a CTA sends visitors to. Trailing slash avoids a redirect. */
+  page: "/contacto/",
+  /** Fragment id of the <form>, so the visitor lands on it, not on the hero. */
+  id: "formulario",
+  /** Query parameter the form reads to pre-fill its Asunto field. */
+  subjectParam: "asunto",
+};

@@ -1,4 +1,6 @@
 ---
+import { inquiryForm } from "../data/contact";
+
 // Netlify form: the data-netlify/honeypot/action attributes are build-time
 // infrastructure — Netlify parses them from the static HTML. Do not remove.
 const fieldClasses =
@@ -7,7 +9,8 @@ const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
 ---
 
 <form
-    class="flex flex-col gap-2 p-4"
+    id={inquiryForm.id}
+    class="flex scroll-mt-8 flex-col gap-2 p-4"
     netlify-honeypot="bot-field"
     data-netlify="true"
     name="contact"
@@ -73,3 +76,24 @@ const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
         >Enviar mensaje</button
     >
 </form>
+
+<script>
+    import { inquiryForm } from "../data/contact";
+
+    // CTAs elsewhere on the site link here with the topic in the query string
+    // (e.g. "Pedí tu kit"), so the visitor does not have to retype it. Only an
+    // empty field is filled: never overwrite what the visitor already typed,
+    // e.g. when the page is restored from the back/forward cache.
+    const MAX_SUBJECT_LENGTH = 150;
+
+    const subject = new URLSearchParams(window.location.search)
+        .get(inquiryForm.subjectParam)
+        ?.trim();
+    const field = document.querySelector<HTMLInputElement>(
+        `#${inquiryForm.id} input[name="asunto"]`,
+    );
+
+    if (subject && field && !field.value) {
+        field.value = subject.slice(0, MAX_SUBJECT_LENGTH);
+    }
+</script>

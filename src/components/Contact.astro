@@ -86,14 +86,23 @@ const labelClasses = "mb-2 block text-sm font-medium text-gray-600";
     // e.g. when the page is restored from the back/forward cache.
     const MAX_SUBJECT_LENGTH = 150;
 
-    const subject = new URLSearchParams(window.location.search)
-        .get(inquiryForm.subjectParam)
-        ?.trim();
-    const field = document.querySelector<HTMLInputElement>(
-        `#${inquiryForm.id} input[name="asunto"]`,
-    );
+    function prefillSubject() {
+        const subject = new URLSearchParams(window.location.search)
+            .get(inquiryForm.subjectParam)
+            ?.trim();
+        const field = document.querySelector<HTMLInputElement>(
+            `#${inquiryForm.id} input[name="asunto"]`,
+        );
 
-    if (subject && field && !field.value) {
-        field.value = subject.slice(0, MAX_SUBJECT_LENGTH);
+        if (subject && field && !field.value) {
+            field.value = subject.slice(0, MAX_SUBJECT_LENGTH);
+        }
     }
+
+    // <ClientRouter /> swaps the DOM on navigation WITHOUT re-running module
+    // scripts. The home page also renders this form, so the script has already
+    // run there: a CTA clicked on the home page would land on /contacto with an
+    // empty field. `astro:page-load` fires on the first load and after every
+    // client-side navigation (same pattern as src/scripts/motion.ts).
+    document.addEventListener("astro:page-load", prefillSubject);
 </script>
